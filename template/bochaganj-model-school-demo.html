@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Court Model High School, Rajshahi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1a5f3a',
+                        'dark-red': '#8b1538',
+                        'light-bg': '#f5f5f5',
+                        'text-dark': '#333',
+                        'text-light': '#666',
+                        'border-color': '#ddd'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Signika:wght@300..700&display=swap');
+
+
+        @media (max-width: 767px) {
+  .force-md {
+    /* simulate md breakpoint */
+    @apply md:grid md:grid-cols-3 md:gap-4;
+  }
+}
+
+
+        body {
+            font-family: "Hind Siliguri", sans-serif;
+        }
+
+
+        .marquee {
+            overflow: hidden;
+            white-space: nowrap;
+            box-sizing: border-box;
+        }
+
+        .marquee span {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 20s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(-100%, 0);
+            }
+        }
+
+
+        .scroll-to-top {
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+        }
+
+        .notice-list li::before,
+        .feature-list li::before,
+        .links-list li::before {
+            position: absolute;
+            left: 0;
+            color: #1a5f3a;
+        }
+
+        .notice-list li::before {
+            content: "▶";
+        }
+
+        .feature-list li::before {
+            content: "▸";
+        }
+
+        .links-list li::before {
+            content: "";
+            margin-right: 0;
+        }
+
+        .calendar-day.today {
+            background: #8b1538;
+            color: white;
+            font-weight: bold;
+        }
+
+        .video-card:hover {
+            transform: scale(1.02);
+        }
+
+        /* Play icon styling */
+        .play-icon {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background: linear-gradient(135deg, #90ee90, #32cd32);
+            border-radius: 50%;
+            margin-right: 8px;
+            position: relative;
+        }
+
+        .play-icon::after {
+            content: "";
+            position: absolute;
+            top: 3px;
+            left: 5px;
+            width: 0;
+            height: 0;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            border-left: 7px solid #1a5f3a;
+        }
+    </style>
+</head>
+
+<body class="text-gray-800">
+    <!-- Navigation -->
+
+
+
+
+    <nav class="bg-dark-red sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-14 h-14 bg-white rounded-full flex items-center justify-center font-bold text-primary">
+                        <img class="" src="/tests/logo.png" alt="">
+                    </div>
+                    <div class="text-white font-bold">
+                        <div class="text-2xl opacity-100">বোচাগঞ্জ মডেল স্কুল</div>
+                        <div class="opacity-70">বোচাগঞ্জ, দিনাজপুর</div>
+                    </div>
+                </div>
+
+                <button class="md:hidden text-white text-2xl focus:outline-none" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <div class="hidden md:flex space-x-6">
+                    <a href="#home" class="text-white hover:opacity-80 transition-opacity">HOME</a>
+                    <a href="#about" class="text-white hover:opacity-80 transition-opacity">About</a>
+                    <a href="#academic" class="text-white hover:opacity-80 transition-opacity">Academic</a>
+                    <a href="#admission" class="text-white hover:opacity-80 transition-opacity">Admission</a>
+                    <a href="#notices" class="text-white hover:opacity-80 transition-opacity">Notices</a>
+                    <a href="#gallery" class="text-white hover:opacity-80 transition-opacity">Gallery</a>
+                    <a href="#contact" class="text-white hover:opacity-80 transition-opacity">Contact</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div class="hidden md:hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-dark-red">
+                <a href="#home" class="block px-3 py-2 text-white border-b border-white/20">HOME</a>
+                <a href="#about" class="block px-3 py-2 text-white border-b border-white/20">About</a>
+                <a href="#academic" class="block px-3 py-2 text-white border-b border-white/20">Academic</a>
+                <a href="#admission" class="block px-3 py-2 text-white border-b border-white/20">Admission</a>
+                <a href="#notices" class="block px-3 py-2 text-white border-b border-white/20">Notices</a>
+                <a href="#gallery" class="block px-3 py-2 text-white border-b border-white/20">Gallery</a>
+                <a href="#contact" class="block px-3 py-2 text-white">Contact</a>
+            </div>
+        </div>
+    </nav>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-8">
+
+    <!-- Hero Carousel -->
+    <div class="md:col-span-2 relative h-72 sm:h-80 overflow-hidden bg-black rounded-lg" id="carousel">
+        <div class="flex h-full transition-transform duration-500 ease-in-out" id="carousel-container">
+            <!-- Slide 1 -->
+            <div class="min-w-full h-full relative">
+                <div class="absolute inset-0 bg-cover bg-center"
+                    style="background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80');">
+                </div>
+                <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+                <div
+                    class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-10 max-w-[90%]">
+                    <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">Welcome to Court Model High School</h1>
+                    <p class="text-lg">Excellence in Education</p>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="min-w-full h-full relative">
+                <div class="absolute inset-0 bg-cover bg-center"
+                    style="background-image: url('https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=80');">
+                </div>
+                <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+                <div
+                    class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-10 max-w-[90%]">
+                    <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">Our Campus</h1>
+                    <p class="text-lg">State of the art facilities</p>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="min-w-full h-full relative">
+                <div class="absolute inset-0 bg-cover bg-center"
+                    style="background-image: url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1200&q=80');">
+                </div>
+                <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+                <div
+                    class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-10 max-w-[90%]">
+                    <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">Quality Education</h1>
+                    <p class="text-lg">Nurturing future leaders</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="absolute top-1/2 left-4 right-4 flex justify-between transform -translate-y-1/2 z-20">
+            <button class="bg-white/70 hover:bg-white/90 text-gray-800 p-2 rounded-md transition" id="prev-btn">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="bg-white/70 hover:bg-white/90 text-gray-800 p-2 rounded-md transition" id="next-btn">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Sidebar Cards -->
+    <div class="md:col-span-1 space-y-4">
+        <!-- Card 1 -->
+        <div class="bg-white border border-gray-300 rounded-lg overflow-hidden shadow-sm">
+            <div class="bg-green-600 text-white p-3 font-bold text-center">সভাপতির বানী</div>
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80"
+                alt="Principal" class="w-full h-44 object-cover">
+            <div class="p-3 text-center text-gray-700 text-sm">
+                <p><strong>সায়মা আক্তার</strong></p>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-white border border-gray-300 rounded-lg overflow-hidden shadow-sm">
+            <div class="bg-green-600 text-white p-3 font-bold text-center">প্রধান শিক্ষকের বানী</div>
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80"
+                alt="Principal" class="w-full h-44 object-cover">
+            <div class="p-3 text-center text-gray-700 text-sm">
+                <p><strong>মাইক হিনোডা</strong></p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <!-- News Section -->
+    <div class="bg-red-600 text-white py-2">
+        <div class="marquee">
+            <span>🔔 সর্বশেষ সংবাদ: বার্ষিক পরীক্ষা ২০২৫ এর রুটিন প্রকাশিত হয়েছে | ভর্তি চলছে ২০২৬ শিক্ষাবর্ষের জন্য |
+                আগামী ১৫ নভেম্বর বার্ষিক ক্রীড়া প্রতিযোগিতা অনুষ্ঠিত হবে | শীতকালীন ছুটি: ১ জানুয়ারি থেকে ১৫ জানুয়ারি
+                ২০২৬</span>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-12 py-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Left Column (2/3 width) -->
+            <div class="md:col-span-2 space-y-8">
+                <!-- Notice Board -->
+                <div class="bg-gray-100 border border-gray-300 rounded-lg p-4 flex flex-col sm:flex-row gap-4">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-green-300 to-green-400 rounded-full flex items-center justify-center text-2xl flex-shrink-0">
+                        🌐
+                    </div>
+                    <div class="flex-1">
+                        <h2 class="text-2xl font-bold mb-4">Notice Board</h2>
+                        <ul class="space-y-2 mb-4">
+                            <li class="text-gray-600 pl-6 relative flex items-center gap-2">
+                                <i data-lucide="circle-chevron-right" class="text-green-700 w-5 h-5"></i>
+                                <a href="#" class="hover:underline">শিক্ষা প্রতিষ্ঠান শতভাগ মাদকমুক্তকরণ প্রসঙ্গে।</a>
+                            </li>
+
+                            <li class="text-gray-600 pl-6 relative flex items-center gap-2">
+                                <i data-lucide="circle-chevron-right" class="text-green-700 w-5 h-5"></i>
+                                <a href="#" class="hover:underline">আখেরী চাহার সোয়া ও প্রদান শিক্ষকের সংক্ষিপ্ত ছুটি
+                                    প্রসঙ্গে।</a>
+                            </li>
+
+                            <li class="text-gray-600 pl-6 relative flex items-center gap-2">
+                                <i data-lucide="circle-chevron-right" class="text-green-700 w-5 h-5"></i>
+                                <a href="#" class="hover:underline">জুলাই গণভাষুখান উপলব্ধে বিদ্যালয় বন্ধ প্রসঙ্গে।</a>
+                            </li>
+
+                            <li class="text-gray-600 pl-6 relative flex items-center gap-2">
+                                <i data-lucide="circle-chevron-right" class="text-green-700 w-5 h-5"></i>
+                                <a href="#" class="hover:underline">পবিত্র ঈদ-উল-আহা ও গন্তীসক্রালীন অবকাশ উপলব্ধে
+                                    বিদ্যালয় বন্ধ প্রসঙ্গে।</a>
+                            </li>
+
+                            <li class="text-gray-600 pl-6 relative flex items-center gap-2">
+                                <i data-lucide="circle-chevron-right" class="text-green-700 w-5 h-5"></i>
+                                <a href="#" class="hover:underline">বিদ্যালয়ে বার্ষিক বনভোজন আয়োজন প্রসঙ্গে।</a>
+                            </li>
+                        </ul>
+                        <button class="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-md float-right transition">View
+                            All</button>
+                    </div>
+                </div>
+
+                <!-- Features Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
+                    <!-- Feature Card 1 -->
+                    <div class="bg-gray-100  border border-gray-300 rounded-lg p-6 hover:shadow-md transition-shadow">
+             <h3 class="text-lg font-bold mb-3">স্কুল প্রশাসন</h3>
+
+
+             <div class="flex justify-center items-center">
+
+
+                        <div
+                            class="my-auto w-16 h-16 bg-gradient-to-br from-green-300 to-green-400 rounded-md flex items-center justify-center text-xl">
+                            👥
+                        </div>
+                       <div>
+                       
+                        <ul class="space-y-2 text-gray-600 text-sm">
+                            <li class="pl-5 relative flex items-center gap-2">
+                                <i data-lucide="circle-chevron-right" class="text-green-700 w-4 h-4"></i>
+                                <a href="#" class="hover:underline">প্রধান শিক্ষক</a>
+                            </li>
+
+                            <li class="pl-5 relative flex items-center gap-2">
+                                <i data-lucide="circle-chevron-right" class="text-green-700 w-4 h-4"></i>
+                                <a href="#" class="hover:underline">সহকারী প্রধান শিক্ষক</a>
+                            </li>
+
+                            <li class="pl-5 relative flex items-center gap-2">
+                                <i data-lucide="circle-chevron-right" class="text-green-700 w-4 h-4"></i>
+                                <a href="#" class="hover:underline">প্রশিক্ষক কার্যক্রম</a>
+                            </li>
+
+                            <li class="pl-5 relative flex items-center gap-2">
+                                <i data-lucide="circle-chevron-right" class="text-green-700 w-4 h-4"></i>
+                                <a href="#" class="hover:underline">পরিচালনা কমিটি</a>
+                            </li>
+
+                            <li class="pl-5 relative flex items-center gap-2">
+                                <i data-lucide="circle-chevron-right" class="text-green-700 w-4 h-4"></i>
+                                <a href="#" class="hover:underline">গৃহব্যবস্থাপনা</a>
+                            </li>
+
+                            <li class="pl-5 relative flex items-center gap-2">
+                                <i data-lucide="circle-chevron-right" class="text-green-700 w-4 h-4"></i>
+                                <a href="#" class="hover:underline">শিক্ষকমণ্ডলী</a>
+                            </li>
+                        </ul>
+</div>
+</div>
+                    </div>
+
+                    <!-- Feature Card 2 -->
+                    <div class="bg-gray-100 border border-gray-300 rounded-lg p-6 hover:shadow-md transition-shadow">
+                          <h3 class="text-lg font-bold mb-3">একাডেমিক</h3>
+
+
+                            <div class="flex justify-center items-center">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-green-300 to-green-400 rounded-md flex items-center justify-center text-xl">
+                            📋
+                        </div>
+                      
+                        <ul class="space-y-2 text-gray-600 text-sm">
+                            <li class="pl-5 relative flex items-center gap-2">
+                                <i data-lucide="circle-chevron-right" class="text-green-700 w-4 h-4"></i>
+                                <a href="#" class="hover:underline">ষষ্ঠ</a>
+                            </li>
+
+                            <li class="pl-5 relative flex items-center gap-2">
+                                <i data-lucide="circle-chevron-right" class="text-green-700 w-4 h-4"></i>
+                                <a href="#" class="hover:underline">সপ্তম</a>
+                            </li>
+
+                            <li class="pl-5 relative flex items-center gap-2">
+                                <i data-lucide="circle-chevron-right" class="text-green-700 w-4 h-4"></i>
+                                <a href="#" class="hover:underline">অষ্টম</a>
+                            </li>
+
+                            <li class="pl-5 relative flex items-center gap-2">
+                                <i data-lucide="circle-chevron-right" class="text-green-700 w-4 h-4"></i>
+                                <a href="#" class="hover:underline">নবম-দশম</a>
+                            </li>
+
+                            <li class="pl-5 relative flex items-center gap-2">
+                                <i data-lucide="circle-chevron-right" class="text-green-700 w-4 h-4"></i>
+                                <a href="#" class="hover:underline">একাদশ-দ্বাদশ</a>
+                            </li>
+                        </ul>
+                        </div>
+
+                    </div>
+
+                    <!-- Feature Card 3 -->
+                    <div class="bg-gray-100 border border-gray-300 rounded-lg p-6 hover:shadow-md transition-shadow">
+                        <h3 class="text-lg font-bold mb-3">বিভিন্ন কর্মসূচি</h3>
+
+                          <div class="flex justify-center items-center">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-green-300 to-green-400 rounded-md flex items-center justify-center text-xl">
+                            📚
+                        </div>
+                        
+                        <ul class="space-y-2 text-gray-600 text-sm">
+                            <li class="pl-5 relative flex items-center gap-2">
+                                <i data-lucide="circle-chevron-right" class="text-green-700 w-4 h-4"></i>
+                                <a href="#" class="hover:underline">বিশেষ গৃহীত</a>
+                            </li>
+
+                            <li class="pl-5 relative flex items-center gap-2">
+                                <i data-lucide="circle-chevron-right" class="text-green-700 w-4 h-4"></i>
+                                <a href="#" class="hover:underline">বিশেষী গৃহীত</a>
+                            </li>
+
+                            <li class="pl-5 relative flex items-center gap-2">
+                                <i data-lucide="circle-chevron-right" class="text-green-700 w-4 h-4"></i>
+                                <a href="#" class="hover:underline">মেধা বিষয়ক</a>
+                            </li>
+
+                            <li class="pl-5 relative flex items-center gap-2">
+                                <i data-lucide="circle-chevron-right" class="text-green-700 w-4 h-4"></i>
+                                <a href="#" class="hover:underline">সাংস্কৃতিক প্রতিযোগিতা</a>
+                            </li>
+
+                            <li class="pl-5 relative flex items-center gap-2">
+                                <i data-lucide="circle-chevron-right" class="text-green-700 w-4 h-4"></i>
+                                <a href="#" class="hover:underline">খেলাধুলা কর্মসূচি</a>
+                            </li>
+
+                            <li class="pl-5 relative flex items-center gap-2">
+                                <i data-lucide="circle-chevron-right" class="text-green-700 w-4 h-4"></i>
+                                <a href="#" class="hover:underline">সাধারণ বিজ্ঞান</a>
+                            </li>
+                        </ul>
+                          </div>
+                    </div>
+
+                    <!-- Feature Card 4 -->
+                    <div class="bg-gray-100 border border-gray-300 rounded-lg p-6 hover:shadow-md transition-shadow">
+                         <h3 class="text-lg font-bold mb-3">ভর্তি সংক্রান্ত</h3>
+
+                           <div class="flex justify-center items-center">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-green-300 to-green-400 rounded-md flex items-center justify-center text-xl">
+                            🎯
+                        </div>
+                       
+                        <ul class="space-y-2 text-gray-600 text-sm">
+                            <li class="pl-5 relative flex items-center gap-2">
+                                <i data-lucide="circle-chevron-right" class="text-green-700 w-4 h-4"></i>
+                                <a href="#" class="hover:underline">ভর্তির শর্তাবলী</a>
+                            </li>
+
+                            <li class="pl-5 relative flex items-center gap-2">
+                                <i data-lucide="circle-chevron-right" class="text-green-700 w-4 h-4"></i>
+                                <a href="#" class="hover:underline">ফি তালিকা</a>
+                            </li>
+
+                            <li class="pl-5 relative flex items-center gap-2">
+                                <i data-lucide="circle-chevron-right" class="text-green-700 w-4 h-4"></i>
+                                <a href="#" class="hover:underline">আবেদন ফর্ম ডাউনলোড</a>
+                            </li>
+
+                            <li class="pl-5 relative flex items-center gap-2">
+                                <i data-lucide="circle-chevron-right" class="text-green-700 w-4 h-4"></i>
+                                <a href="#" class="hover:underline">ভর্তি পরীক্ষার সময়সূচী</a>
+                            </li>
+
+                            <li class="pl-5 relative flex items-center gap-2">
+                                <i data-lucide="circle-chevron-right" class="text-green-700 w-4 h-4"></i>
+                                <a href="#" class="hover:underline">ফলাফল প্রকাশ</a>
+                            </li>
+                        </ul>
+</div>
+                    </div>
+
+                    <!-- Feature Card 5 -->
+                    <div class="bg-gray-100 border border-gray-300 rounded-lg p-6 hover:shadow-md transition-shadow">
+                             <h3 class="text-lg font-bold mb-3">বার্ষিক কর্মসূচি</h3>
+                        <div class="flex justify-center items-center">
+                   
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-green-300 to-green-400 rounded-md flex items-center justify-center text-xl">
+                            💼
+                        </div>
+                          
+                        <ul class="space-y-2 text-gray-600 text-sm">
+                            <li class="pl-5 relative flex items-center gap-2">
+                                <i data-lucide="circle-chevron-right" class="text-green-700 w-4 h-4"></i>
+                                <a href="#" class="hover:underline">বার্ষিক সমাবেশ</a>
+                            </li>
+
+                            <li class="pl-5 relative flex items-center gap-2">
+                                <i data-lucide="circle-chevron-right" class="text-green-700 w-4 h-4"></i>
+                                <a href="#" class="hover:underline">খেলাধুলা দিবস</a>
+                            </li>
+
+                            <li class="pl-5 relative flex items-center gap-2">
+                                <i data-lucide="circle-chevron-right" class="text-green-700 w-4 h-4"></i>
+                                <a href="#" class="hover:underline">বিজ্ঞান মেলা</a>
+                            </li>
+
+                            <li class="pl-5 relative flex items-center gap-2">
+                                <i data-lucide="circle-chevron-right" class="text-green-700 w-4 h-4"></i>
+                                <a href="#" class="hover:underline">সাংস্কৃতিক অনুষ্ঠান</a>
+                            </li>
+
+                            <li class="pl-5 relative flex items-center gap-2">
+                                <i data-lucide="circle-chevron-right" class="text-green-700 w-4 h-4"></i>
+                                <a href="#" class="hover:underline">শিক্ষা ভ্রমণ</a>
+                            </li>
+
+                            <li class="pl-5 relative flex items-center gap-2">
+                                <i data-lucide="circle-chevron-right" class="text-green-700 w-4 h-4"></i>
+                                <a href="#" class="hover:underline">বার্ষিকী অনুষ্ঠান</a>
+                            </li>
+                        </ul>
+</div>
+                    </div>
+
+                    <!-- Feature Card 6 -->
+                    <div class="bg-gray-100 border border-gray-300 rounded-lg p-6 hover:shadow-md transition-shadow">
+                        <h3 class="text-lg font-bold mb-3">সিলেবাস ও ক্লাসরুটিন </h3>
+
+                        <div class="flex justify-center items-center">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-green-300 to-green-400 rounded-md flex items-center justify-center text-xl">
+                            📖
+                        </div>
+                        
+                        <ul class="space-y-2 text-gray-600 text-sm">
+                            <li class="pl-5 relative flex items-center gap-2">
+                                <i data-lucide="circle-chevron-right" class="text-green-700 w-4 h-4"></i>
+                                <a href="#" class="hover:underline">ষষ্ঠ শ্রেণীর ক্লাস রুটিন</a>
+                            </li>
+
+                            <li class="pl-5 relative flex items-center gap-2">
+                                <i data-lucide="circle-chevron-right" class="text-green-700 w-4 h-4"></i>
+                                <a href="#" class="hover:underline">সপ্তম শ্রেণীর ক্লাস রুটিন</a>
+                            </li>
+
+                            <li class="pl-5 relative flex items-center gap-2">
+                                <i data-lucide="circle-chevron-right" class="text-green-700 w-4 h-4"></i>
+                                <a href="#" class="hover:underline">অষ্টম শ্রেণীর ক্লাস রুটিন</a>
+                            </li>
+
+                            <li class="pl-5 relative flex items-center gap-2">
+                                <i data-lucide="circle-chevron-right" class="text-green-700 w-4 h-4"></i>
+                                <a href="#" class="hover:underline">নবম শ্রেণীর ক্লাস রুটিন</a>
+                            </li>
+
+                            <li class="pl-5 relative flex items-center gap-2">
+                                <i data-lucide="circle-chevron-right" class="text-green-700 w-4 h-4"></i>
+                                <a href="#" class="hover:underline">দশম শ্রেণীর ক্লাস রুটিন</a>
+                            </li>
+
+                          
+                        </ul>
+</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar (1/3 width on medium+ screens) -->
+            <div class="lg:col-span-1 space-y-6">
+                <!-- Teacher Profile 1 -->
+                <div class="bg-white border border-gray-300 rounded-lg overflow-hidden">
+                    <div class="bg-green-600 text-white p-4 font-bold text-center">সভাপতির বানী</div>
+                    <div class="h-52 bg-gray-200 flex items-center justify-center text-gray-500 text-sm">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
+                            alt="Principal" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4 text-center text-gray-600 text-sm">
+                        <p><strong></strong>সায়মা আক্তার</p>
+                    </div>
+                </div>
+
+
+                <div class="bg-white border border-gray-300 rounded-lg overflow-hidden">
+                    <div class="bg-green-600 text-white p-4 font-bold text-center">প্রধান শিক্ষকের বানী</div>
+                    <div class="h-48 bg-gray-200 flex items-center justify-center text-gray-500 text-sm">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
+                            alt="Principal" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4 text-center text-gray-600 text-sm">
+                        <p><strong>মাইক হিনোডা </strong></p>
+                    </div>
+                </div>
+
+                <!-- Calendar -->
+                <div class="bg-white border border-gray-300 rounded-lg overflow-hidden">
+                    <div class="bg-green-600 text-white p-4 text-center font-bold">Calendar</div>
+                    <div class=" text-dark p-2 text-center font-bold">OCTOBER 2025</div>
+                    <div class="grid grid-cols-7 gap-0 p-4">
+                        <div class="text-center font-bold text-xs pb-2 border-b border-gray-300">M</div>
+                        <div class="text-center font-bold text-xs pb-2 border-b border-gray-300">T</div>
+                        <div class="text-center font-bold text-xs pb-2 border-b border-gray-300">W</div>
+                        <div class="text-center font-bold text-xs pb-2 border-b border-gray-300">T</div>
+                        <div class="text-center font-bold text-xs pb-2 border-b border-gray-300">F</div>
+                        <div class="text-center font-bold text-xs pb-2 border-b border-gray-300">S</div>
+                        <div class="text-center font-bold text-xs pb-2 border-b border-gray-300">S</div>
+
+                        <!-- Calendar days -->
+                        <div class="text-center text-sm p-2 border border-gray-100">1</div>
+                        <div class="text-center text-sm p-2 border border-gray-100">2</div>
+                        <div class="text-center text-sm p-2 border border-gray-100">3</div>
+                        <div class="text-center text-sm p-2 border border-gray-100">4</div>
+                        <div class="text-center text-sm p-2 border border-gray-100">5</div>
+                        <div class="text-center text-sm p-2 border border-gray-100">6</div>
+                        <div class="text-center text-sm p-2 border border-gray-100">7</div>
+                        <div class="text-center text-sm p-2 border border-gray-100">8</div>
+                        <div class="text-center text-sm p-2 border border-gray-100">9</div>
+                        <div class="text-center text-sm p-2 border border-gray-100">10</div>
+                        <div class="text-center text-sm p-2 border border-gray-100">11</div>
+                        <div class="text-center text-sm p-2 border border-gray-100">12</div>
+                        <div class="text-center text-sm p-2 border border-gray-100">13</div>
+                        <div class="text-center text-sm p-2 border border-gray-100">14</div>
+                        <div class="text-center text-sm p-2 border border-gray-100">15</div>
+                        <div class="text-center text-sm p-2 border border-gray-100">16</div>
+                        <div class="text-center text-sm p-2 border border-gray-100">17</div>
+                        <div class="text-center text-sm p-2 border border-gray-100">18</div>
+                        <div class="text-center text-sm p-2 border border-gray-100">19</div>
+                        <div class="text-center text-sm p-2 border border-gray-100">20</div>
+                        <div class="text-center text-sm p-2 border border-gray-100">21</div>
+                        <div class="text-center text-sm p-2 border border-gray-100">22</div>
+                        <div class="text-center text-sm p-2 border border-gray-100">23</div>
+                        <div class="text-center text-sm p-2 border border-gray-100">24</div>
+                        <div class="text-center text-sm p-2 border border-gray-100">25</div>
+                        <div class="text-center text-sm p-2 border border-gray-100">26</div>
+                        <div class="text-center text-sm p-2 border border-gray-100">27</div>
+                        <div class="text-center text-sm p-2 border border-gray-100">28</div>
+                        <div class="text-center text-sm p-2 border border-gray-100">29</div>
+                        <div class="text-center text-sm p-2 border border-gray-100">30</div>
+                        <div class="text-center text-sm p-2 border border-gray-100 today">31</div>
+                    </div>
+                    <div class="flex justify-between p-4 border-t border-gray-300 text-sm">
+                        <span>« Jun</span>
+                        <span class="text-dark-red font-bold">▼</span>
+                    </div>
+                </div>
+
+                <!-- Important Links -->
+                <div class="bg-white border border-gray-300 rounded-lg">
+                    <div class="bg-green-600 text-white p-3 font-bold rounded-t-lg">Important Links</div>
+                    <ul class="divide-y divide-gray-200">
+                        <li class="py-2"><a href="#"
+                                class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center"><span
+                                    class="play-icon"></span>শিক্ষা মন্ত্রণালয়</a></li>
+                        <li class="py-2"><a href="#"
+                                class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center"><span
+                                    class="play-icon"></span>রাজশাহী শিক্ষা বোর্ড</a></li>
+                        <li class="py-2"><a href="#"
+                                class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center"><span
+                                    class="play-icon"></span>শিক্ষক ও উক্ত শিক্ষক শিক্ষা বোর্ড</a></li>
+                        <li class="py-2"><a href="#"
+                                class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center"><span
+                                    class="play-icon"></span>জাতীয় শিক্ষা নীতিমালা</a></li>
+                        <li class="py-2"><a href="#"
+                                class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center"><span
+                                    class="play-icon"></span>ডিজিটাল বাংলাদেশ</a></li>
+                        <li class="py-2"><a href="#"
+                                class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center"><span
+                                    class="play-icon"></span>গবেষণা বিভাগ মন্ত্রণালয়</a></li>
+                        <li class="py-2"><a href="#"
+                                class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center"><span
+                                    class="play-icon"></span>Shikkhak Natayen</a></li>
+                        <li class="py-2"><a href="#"
+                                class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center"><span
+                                    class="play-icon"></span>EMIS | DSHE</a></li>
+                    </ul>
+                </div>
+
+
+
+
+                <div class="bg-white border border-gray-300 rounded-lg overflow-hidden">
+                    <div class="bg-green-600 text-white p-4 font-bold text-center">হটলাইন</div>
+                    <div class="h-full bg-gray-200 flex items-center justify-center text-gray-500 text-sm">
+                        <img src="https://cmhsr.edu.bd/wp-content/uploads/2023/09/National-Helpline.jpg"
+                            alt="Principal" class="w-full h-full object-cover">
+                    </div>
+                   
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Section -->
+    <div class="bg-white py-12 border-t border-b border-gray-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-center mb-8">Recent Videos</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div
+                    class="bg-black aspect-video rounded-lg flex items-center justify-center text-gray-400 cursor-pointer hover:scale-102 transition-transform relative">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="play-icon w-12 h-12 flex items-center justify-center">
+                            <i
+                                class="fas fa-play text-primary text-xs absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"></i>
+                        </div>
+                    </div>
+                    Video 1
+                </div>
+                <div
+                    class="bg-black aspect-video rounded-lg flex items-center justify-center text-gray-400 cursor-pointer hover:scale-102 transition-transform relative">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="play-icon w-12 h-12 flex items-center justify-center">
+                            <i
+                                class="fas fa-play text-primary text-xs absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"></i>
+                        </div>
+                    </div>
+                    Video 2
+                </div>
+                <div
+                    class="bg-black aspect-video rounded-lg flex items-center justify-center text-gray-400 cursor-pointer hover:scale-102 transition-transform relative">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="play-icon w-12 h-12 flex items-center justify-center">
+                            <i
+                                class="fas fa-play text-primary text-xs absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"></i>
+                        </div>
+                    </div>
+                    Video 3
+                </div>
+                <div
+                    class="bg-black aspect-video rounded-lg flex items-center justify-center text-gray-400 cursor-pointer hover:scale-102 transition-transform relative">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="play-icon w-12 h-12 flex items-center justify-center">
+                            <i
+                                class="fas fa-play text-primary text-xs absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"></i>
+                        </div>
+                    </div>
+                    Video 4
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Location Section -->
+    <div class="bg-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold mb-6">Our Location</h2>
+            <div class="h-96 bg-gray-200 rounded-lg flex items-center justify-center text-gray-500">
+                <img src="https://maps.googleapis.com/maps/api/staticmap?center=Rajshahi,Bangladesh&zoom=13&size=600x400&maptype=roadmap&markers=color:red%7CRajshahi,Bangladesh&key=YOUR_API_KEY"
+                    alt="School Location" class="w-full h-full object-cover">
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-8 text-center">
+        <p>All rights reserved © 2025, Court Model High School, Rajshahi. Design & Maintenance by <a href="#"
+                class="text-white hover:text-primary transition-colors">rajIT Solutions ltd.</a></p>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button
+        class="scroll-to-top fixed bottom-8 right-8 w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center text-xl z-50"
+        id="scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Carousel functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('#carousel-container > div').length;
+        const container = document.getElementById('carousel-container');
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides) % slides;
+            updateCarousel();
+        }
+
+        function updateCarousel() {
+            container.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        // Auto-advance carousel
+        setInterval(nextSlide, 5000);
+
+        // Event listeners for buttons
+        document.getElementById('next-btn').addEventListener('click', nextSlide);
+        document.getElementById('prev-btn').addEventListener('click', prevSlide);
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Scroll to top button
+        const scrollToTopBtn = document.getElementById('scroll-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
