@@ -138,13 +138,15 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <div class="flex items-center gap-4">
+                    <a href="/">
                     <div
                         class="w-14 h-14 bg-white rounded-full flex items-center justify-center font-bold text-primary">
-                        <img class="" src="/tests/logo.png" alt="">
+                        <img class="" src="{{ info.logo.url }}" alt="">
                     </div>
+                    </a>
                     <div class="text-white font-bold">
-                        <div class="text-2xl opacity-100">বোচাগঞ্জ মডেল স্কুল</div>
-                        <div class="opacity-70">বোচাগঞ্জ, দিনাজপুর</div>
+                        <div class="text-2xl opacity-100">{{ info.name }}</div>
+                        <div class="opacity-70">{{ info.address }} | {{ info.phone }}</div>
                     </div>
                 </div>
 
@@ -153,13 +155,8 @@
                 </button>
 
                 <div class="hidden md:flex space-x-6">
-                    <a href="#home" class="text-white hover:opacity-80 transition-opacity">HOME</a>
-                    <a href="#about" class="text-white hover:opacity-80 transition-opacity">About</a>
-                    <a href="#academic" class="text-white hover:opacity-80 transition-opacity">Academic</a>
-                    <a href="#admission" class="text-white hover:opacity-80 transition-opacity">Admission</a>
-                    <a href="#notices" class="text-white hover:opacity-80 transition-opacity">Notices</a>
-                    <a href="#gallery" class="text-white hover:opacity-80 transition-opacity">Gallery</a>
-                    <a href="#contact" class="text-white hover:opacity-80 transition-opacity">Contact</a>
+                    <a href="/admin" class="text-white hover:opacity-80 transition-opacity">Admin</a>
+                   
                 </div>
             </div>
         </div>
@@ -167,19 +164,14 @@
         <!-- Mobile menu -->
         <div class="hidden md:hidden" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-dark-red">
-                <a href="#home" class="block px-3 py-2 text-white border-b border-white/20">HOME</a>
-                <a href="#about" class="block px-3 py-2 text-white border-b border-white/20">About</a>
-                <a href="#academic" class="block px-3 py-2 text-white border-b border-white/20">Academic</a>
-                <a href="#admission" class="block px-3 py-2 text-white border-b border-white/20">Admission</a>
-                <a href="#notices" class="block px-3 py-2 text-white border-b border-white/20">Notices</a>
-                <a href="#gallery" class="block px-3 py-2 text-white border-b border-white/20">Gallery</a>
-                <a href="#contact" class="block px-3 py-2 text-white">Contact</a>
+                <a href="/admin" class="block px-3 py-2 text-white border-b border-white/20">Admin</a>
+               
             </div>
         </div>
     </nav>
 
 
-<div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto px-4 sm:px-6 lg:px-12 py-8">
 
     <!-- Hero Carousel -->
     <div class="md:col-span-2 relative h-72 sm:h-80 overflow-hidden bg-black rounded-lg" id="carousel">
@@ -214,24 +206,28 @@
     <!-- Sidebar Cards -->
     <div class="md:col-span-1 space-y-4">
         <!-- Card 1 -->
-        <div class="bg-white border border-gray-300 rounded-lg overflow-hidden shadow-sm">
-            <div class="bg-green-600 text-white p-3 font-bold text-center">{{p.title}}</div>
-            <img src="{{p.image.url}}"
-                alt="Principal" class="w-full h-44 object-cover">
-            <div class="p-3 text-center text-gray-700 text-sm">
-                <p><strong>{{p.name}}</strong></p>
-            </div>
-        </div>
 
-        <!-- Card 2 -->
+        <a href="/porichalok">
         <div class="bg-white border border-gray-300 rounded-lg overflow-hidden shadow-sm">
-            <div class="bg-green-600 text-white p-3 font-bold text-center">প্রধান শিক্ষকের বানী</div>
-            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80"
+            <div class="bg-green-600 text-white p-3 font-bold text-center">{{porichalok.title}}</div>
+            <img src="{{porichalok.image.url}}"
                 alt="Principal" class="w-full h-44 object-cover">
             <div class="p-3 text-center text-gray-700 text-sm">
-                <p><strong>মাইক হিনোডা</strong></p>
+                <p><strong>{{porichalok.name}}</strong></p>
             </div>
         </div>
+        </a>
+        <!-- Card 2 -->
+        <a href="/head">
+        <div class="bg-white border border-gray-300 rounded-lg overflow-hidden shadow-sm">
+            <div class="bg-green-600 text-white p-3 font-bold text-center">{{ headteacher.title }}</div>
+            <img src=""
+                alt="Principal" class="w-full h-44 object-cover">
+            <div class="p-3 text-center text-gray-700 text-sm">
+                <p><strong>{{ headteacher.name }}</strong></p>
+            </div>
+        </div>
+        </a>
     </div>
 
 </div>
@@ -269,28 +265,24 @@
             <!-- Sidebar (1/3 width on medium+ screens) -->
             <div class="lg:col-span-1 space-y-6">
                 <!-- Teacher Profile 1 -->
+ {% for widget in widgets %}
+
+ <a href="/widget/{{widget.id}}">
+
                 <div class="bg-white border border-gray-300 rounded-lg overflow-hidden">
-                    <div class="bg-green-600 text-white p-4 font-bold text-center">সভাপতির বানী</div>
+                    <div class="bg-green-600 text-white p-4 font-bold text-center">{{widget.titile}}</div>
                     <div class="h-52 bg-gray-200 flex items-center justify-center text-gray-500 text-sm">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
+                        <img src="{{widget.image.url}}"
                             alt="Principal" class="w-full h-full object-cover">
                     </div>
                     <div class="p-4 text-center text-gray-600 text-sm">
-                        <p><strong></strong>সায়মা আক্তার</p>
+                        <p><strong></strong>{{widget.name}}</p>
                     </div>
                 </div>
 
-
-                <div class="bg-white border border-gray-300 rounded-lg overflow-hidden">
-                    <div class="bg-green-600 text-white p-4 font-bold text-center">প্রধান শিক্ষকের বানী</div>
-                    <div class="h-48 bg-gray-200 flex items-center justify-center text-gray-500 text-sm">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
-                            alt="Principal" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-4 text-center text-gray-600 text-sm">
-                        <p><strong>মাইক হিনোডা </strong></p>
-                    </div>
-                </div>
+ </a>
+ {% endfor %}
+                
 
                 <!-- Calendar -->
                 <div class="bg-white border border-gray-300 rounded-lg overflow-hidden">

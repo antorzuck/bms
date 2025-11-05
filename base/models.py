@@ -26,6 +26,7 @@ class Info(BaseModel):
     address = models.CharField(max_length=500)
     phone = models.CharField(max_length=500)
     email = models.CharField(max_length=500)
+    logo = models.FileField(upload_to='logo')
 
 
 class Porichalok(BaseModel):
@@ -33,4 +34,32 @@ class Porichalok(BaseModel):
     text = CKEditor5Field()
     title = models.CharField(max_length=500)
     image = models.FileField(upload_to="teachers")
+
+class HeadTeacher(BaseModel):
+    name = models.CharField(max_length=500)
+    text = CKEditor5Field()
+    title = models.CharField(max_length=500)
+    image = models.FileField(upload_to="teachers")
+
+
+class Category(BaseModel):
+    name = models.CharField(max_length=50)
+    image = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+
+class Notice(BaseModel):
+    title = models.CharField(max_length=200)
+    text = CKEditor5Field()
+
+class Subcategory(BaseModel):
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="subcategories")
+    name = models.CharField(max_length=50)
+    text = CKEditor5Field()
+
+class Widget(BaseModel):
+    title = models.CharField()
+    image = models.FileField(upload_to='teachers')
+    text = CKEditor5Field()
 

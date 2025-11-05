@@ -9,5 +9,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home),
     path('porichalok', get_pori),
+    path('head', get_head),
+    path('subcategory/<int:id>/', subcategory_detail),
+    path('notices/<int:id>/', notice_detail),
     path("ckeditor5/", include('django_ckeditor_5.urls')),
+    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
