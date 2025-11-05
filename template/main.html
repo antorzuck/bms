@@ -184,44 +184,20 @@
     <!-- Hero Carousel -->
     <div class="md:col-span-2 relative h-72 sm:h-80 overflow-hidden bg-black rounded-lg" id="carousel">
         <div class="flex h-full transition-transform duration-500 ease-in-out" id="carousel-container">
-            <!-- Slide 1 -->
+          {% for i in b %}  <!-- Slide 1 -->
             <div class="min-w-full h-full relative">
                 <div class="absolute inset-0 bg-cover bg-center"
-                    style="background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80');">
+                    style="background-image: url('{{i.file.url}}');">
                 </div>
                 <div class="absolute inset-0 bg-black bg-opacity-50"></div>
                 <div
                     class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-10 max-w-[90%]">
-                    <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">Welcome to Court Model High School</h1>
-                    <p class="text-lg">Excellence in Education</p>
+                    <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">{{i.text}}</h1>
+                    <p class="text-lg">{{b.text}}</p>
                 </div>
             </div>
-
-            <!-- Slide 2 -->
-            <div class="min-w-full h-full relative">
-                <div class="absolute inset-0 bg-cover bg-center"
-                    style="background-image: url('https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=80');">
-                </div>
-                <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-                <div
-                    class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-10 max-w-[90%]">
-                    <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">Our Campus</h1>
-                    <p class="text-lg">State of the art facilities</p>
-                </div>
-            </div>
-
-            <!-- Slide 3 -->
-            <div class="min-w-full h-full relative">
-                <div class="absolute inset-0 bg-cover bg-center"
-                    style="background-image: url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1200&q=80');">
-                </div>
-                <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-                <div
-                    class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-10 max-w-[90%]">
-                    <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">Quality Education</h1>
-                    <p class="text-lg">Nurturing future leaders</p>
-                </div>
-            </div>
+{% endfor %}
+       
         </div>
 
         <!-- Navigation Buttons -->
@@ -239,11 +215,11 @@
     <div class="md:col-span-1 space-y-4">
         <!-- Card 1 -->
         <div class="bg-white border border-gray-300 rounded-lg overflow-hidden shadow-sm">
-            <div class="bg-green-600 text-white p-3 font-bold text-center">সভাপতির বানী</div>
-            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80"
+            <div class="bg-green-600 text-white p-3 font-bold text-center">{{p.title}}</div>
+            <img src="{{p.image.url}}"
                 alt="Principal" class="w-full h-44 object-cover">
             <div class="p-3 text-center text-gray-700 text-sm">
-                <p><strong>সায়মা আক্তার</strong></p>
+                <p><strong>{{p.name}}</strong></p>
             </div>
         </div>
 
