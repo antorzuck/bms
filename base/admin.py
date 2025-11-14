@@ -37,3 +37,9 @@ class WidgetAdmin(admin.ModelAdmin):
     list_display = ('title', 'created_at')
     search_fields = ('title',)
 
+
+@admin.register(MaddhomikTeacher)
+class MaddhomikTeacherAdmin(admin.ModelAdmin):
+    list_display = ('title', 'created_at')
+    search_fields = ('title',)
+

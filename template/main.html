@@ -29,28 +29,33 @@
 
 
         @media (max-width: 767px) {
-  .force-md {
-    /* simulate md breakpoint */
-    @apply md:grid md:grid-cols-3 md:gap-4;
-  }
-}
+            .force-md {
+                /* simulate md breakpoint */
+                @apply md:grid md:grid-cols-3 md:gap-4;
+            }
+        }
 
 
         body {
             font-family: "Hind Siliguri", sans-serif;
         }
 
-        <style>
-  .custom-scrollbar::-webkit-scrollbar {
-    width: 6px;
-  }
-  .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: #a3a3a3;
-    border-radius: 10px;
-  }
-  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: #6b7280;
-  }
+        .hidden-text {
+            display: none;
+                }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #a3a3a3;
+            border-radius: 10px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #6b7280;
+        }
 
 
         .marquee {
@@ -152,10 +157,10 @@
             <div class="flex items-center justify-between h-20">
                 <div class="flex items-center gap-4">
                     <a href="/">
-                    <div
-                        class="w-14 h-14 bg-white rounded-full flex items-center justify-center font-bold text-primary">
-                        <img class="" src="{{ info.logo.url }}" alt="">
-                    </div>
+                        <div
+                            class="w-14 h-14 bg-white rounded-full flex items-center justify-center font-bold text-primary">
+                            <img class="" src="{{ info.logo.url }}" alt="">
+                        </div>
                     </a>
                     <div class="text-white font-bold">
                         <div class="text-2xl opacity-100">{{ info.name }}</div>
@@ -184,116 +189,152 @@
     </nav>
 
 
-<div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto px-4 sm:px-6 lg:px-12 py-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto px-4 sm:px-6 lg:px-12 py-8">
 
-    <!-- Hero Carousel -->
-    <div class="my-auto md:col-span-2 relative h-72 sm:h-80 overflow-hidden bg-black rounded-lg" id="carousel">
-        <div class="flex h-full transition-transform duration-500 ease-in-out" id="carousel-container">
-          {% for i in b %}  <!-- Slide 1 -->
-            <div class="min-w-full h-full relative">
-                <div class="absolute inset-0 bg-cover bg-center"
-                    style="background-image: url('{{i.file.url}}');">
+        <!-- Hero Carousel -->
+        <div class="my-auto md:col-span-2 relative h-72 sm:h-80 overflow-hidden bg-black rounded-lg" id="carousel">
+            <div class="flex h-full transition-transform duration-500 ease-in-out" id="carousel-container">
+                {% for i in b %} <!-- Slide 1 -->
+                <div class="min-w-full h-full relative">
+                    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('{{i.file.url}}');">
+                    </div>
+                    <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+                    <div
+                        class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-10 max-w-[90%]">
+                        <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">{{i.text}}</h1>
+                        <p class="text-lg">{{b.text}}</p>
+                    </div>
                 </div>
-                <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-                <div
-                    class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-10 max-w-[90%]">
-                    <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">{{i.text}}</h1>
-                    <p class="text-lg">{{b.text}}</p>
-                </div>
+                {% endfor %}
+
             </div>
-{% endfor %}
 
+            <!-- Navigation Buttons -->
+            <div class="absolute top-1/2 left-4 right-4 flex justify-between transform -translate-y-1/2 z-20">
+                <button class="bg-white/70 hover:bg-white/90 text-gray-800 p-2 rounded-md transition" id="prev-btn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="bg-white/70 hover:bg-white/90 text-gray-800 p-2 rounded-md transition" id="next-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
         </div>
 
-        <!-- Navigation Buttons -->
-        <div class="absolute top-1/2 left-4 right-4 flex justify-between transform -translate-y-1/2 z-20">
-            <button class="bg-white/70 hover:bg-white/90 text-gray-800 p-2 rounded-md transition" id="prev-btn">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <button class="bg-white/70 hover:bg-white/90 text-gray-800 p-2 rounded-md transition" id="next-btn">
-                <i class="fas fa-chevron-right"></i>
-            </button>
+        <!-- Sidebar Cards -->
+        <div class="md:col-span-1 space-y-4">
+            <!-- Card 1 -->
+
+            <a href="/porichalok" class="block">
+                <div
+                    class="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-transform transform-gpu hover:-translate-y-0.5">
+                    <div class="flex items-center gap-4 p-3">
+                        <!-- portrait -->
+                        <div class="flex-shrink-0 ml-1">
+                            <img src="{{ porichalok.image.url }}" alt="Chairman"
+                                class="w-20 h-20 md:w-24 md:h-24 rounded-lg object-cover border border-gray-100 shadow-xs">
+                        </div>
+
+                        <!-- content -->
+                        <div class="flex-1">
+                            <div class="flex items-start justify-between">
+                                <h3 class="text-orange-500 font-extrabold text-lg leading-5">{{ porichalok.title }}</h3>
+                            </div>
+
+                            <p class="mt-1 text-blue-700 font-semibold text-sm">{{ porichalok.name }}</p>
+
+                            <div class="mt-2">
+                                <a href="/porichalok" class="text-blue-500 text-xs font-medium hover:underline">তার
+                                    সম্পর্কে পড়ুন...</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Card 2 -->
+            <a href="/head" class="block">
+                <div
+                    class="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-transform transform-gpu hover:-translate-y-0.5">
+                    <div class="flex items-center gap-4 p-3">
+                        <div class="flex-shrink-0 ml-1">
+                            <!-- replace with actual image URL -->
+                            <img src="{{ headteacher.image.url }}" alt="Principal"
+                                class="w-20 h-20 md:w-24 md:h-24 rounded-lg object-cover border border-gray-100 shadow-xs">
+                        </div>
+
+                        <div class="flex-1">
+                            <div class="flex items-start justify-between">
+                                <h3 class="text-orange-500 font-extrabold text-lg leading-5">{{ headteacher.title }}
+                                </h3>
+                            </div>
+
+                            <p class="mt-1 text-blue-700 font-semibold text-sm">{{ headteacher.name }}</p>
+
+                            <div class="mt-2">
+                                <a href="/head" class="text-blue-500 text-xs font-medium hover:underline">তার সম্পর্কে
+                                    পড়ুন...</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+
+
+
+
+
+
+            <div class="bg-yellow-400 bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 font-semibold rounded-xl p-5 shadow-md mt-4 space-y-5 max-w-xl mx-auto">
+
+    <!-- Primary Section -->
+    <div class="bg-white/20 rounded-lg p-4 shadow-sm space-y-2">
+        <h3 class="text-lg font-bold flex items-center gap-2">
+            🏫 প্রাথমিক শাখা
+        </h3>
+        <div class="flex items-center gap-2">
+            <span>📅</span>
+            <p>স্থাপিত সন - ২০২২ ইং</p>
+        </div>
+        <div class="flex items-center gap-2">
+            <span>📘</span>
+            <p>বিয়ান্য কোড - ৪৫৭৯৫২</p>
+        </div>
+        <div class="flex items-center gap-2">
+            <span>📞</span>
+            <p>টেলিফোন - ০১৩২৫৩৩৩৪৮১</p>
         </div>
     </div>
 
-    <!-- Sidebar Cards -->
-    <div class="md:col-span-1 space-y-4">
-        <!-- Card 1 -->
-
-  <a href="/porichalok" class="block">
-    <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-transform transform-gpu hover:-translate-y-0.5">
-      <div class="flex items-center gap-4 p-3">
-        <!-- portrait -->
-        <div class="flex-shrink-0 ml-1">
-          <img src="{{ porichalok.image.url }}" alt="Chairman"
-               class="w-20 h-20 md:w-24 md:h-24 rounded-lg object-cover border border-gray-100 shadow-xs">
+    <!-- High School Section -->
+    <div class="bg-white/20 rounded-lg p-4 shadow-sm space-y-2">
+        <h3 class="text-lg font-bold flex items-center gap-2">
+            🏫 মাধ্যমিক শাখা
+        </h3>
+        <div class="flex items-center gap-2">
+            <span>📅</span>
+            <p>স্থাপিত সন - ২০২২ ইং</p>
         </div>
-
-        <!-- content -->
-        <div class="flex-1">
-          <div class="flex items-start justify-between">
-            <h3 class="text-orange-500 font-extrabold text-lg leading-5">{{ porichalok.title }}</h3>
-          </div>
-
-          <p class="mt-1 text-blue-700 font-semibold text-sm">{{ porichalok.name }}</p>
-
-          <div class="mt-2">
-            <a href="/porichalok" class="text-blue-500 text-xs font-medium hover:underline">তার সম্পর্কে পড়ুন...</a>
-          </div>
+        <div class="flex items-center gap-2">
+            <span>📘</span>
+            <p>EIIN নাম্বার - 139711</p>
         </div>
-      </div>
+        <div class="flex items-center gap-2">
+            <span>🔢</span>
+            <p>CODE - 8067</p>
+        </div>
+        <div class="flex items-center gap-2">
+            <span>📞</span>
+            <p>টেলিফোন - ০১৩২৫৩৩৩৪৮১</p>
+        </div>
     </div>
-  </a>
 
-  <!-- Card 2 -->
-  <a href="/head" class="block">
-    <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-transform transform-gpu hover:-translate-y-0.5">
-      <div class="flex items-center gap-4 p-3">
-        <div class="flex-shrink-0 ml-1">
-          <!-- replace with actual image URL -->
-          <img src="{{ headteacher.image.url }}" alt="Principal"
-               class="w-20 h-20 md:w-24 md:h-24 rounded-lg object-cover border border-gray-100 shadow-xs">
-        </div>
-
-        <div class="flex-1">
-          <div class="flex items-start justify-between">
-            <h3 class="text-orange-500 font-extrabold text-lg leading-5">{{ headteacher.title }}</h3>
-          </div>
-
-          <p class="mt-1 text-blue-700 font-semibold text-sm">{{ headteacher.name }}</p>
-
-          <div class="mt-2">
-            <a href="/head" class="text-blue-500 text-xs font-medium hover:underline">তার সম্পর্কে পড়ুন...</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-
-
-
-
-
-
-
-  <div class="bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 font-semibold rounded-xl p-4 shadow-md mt-4 space-y-2 max-w-md mx-auto">
-  <div class="flex items-center space-x-2">
-    <span class="text-lg">📅</span>
-    <p>স্থাপিত সন - ২০২২ ইং</p>
-  </div>
-  <div class="flex items-center space-x-2">
-    <span class="text-lg">📘</span>
-    <p>EIIN নাম্বার - 139711</p>
-  </div>
-  <div class="flex items-center space-x-2">
-    <span class="text-lg">📞</span>
-    <p>টেলিফোন - ০১৭৩৫৮১৯০৪২</p>
-  </div>
 </div>
 
-    </div>
 
-</div>
+        </div>
+
+    </div>
 
     <!-- News Section -->
     <div class="bg-red-600 text-white py-2">
@@ -325,332 +366,417 @@
 
 
 
-            <!-- Sidebar (1/3 width on medium+ screens) -->
-            <div class="lg:col-span-1 space-y-6">
-  <div class="relative w-full max-w-2xl mx-auto rounded-xl overflow-hidden shadow-md">
-  <!-- Slider Container -->
-  <div id="teacherSlider" class="flex transition-transform duration-700 ease-in-out">
-    {% for widget in widgets %}
-    <div class="relative flex-shrink-0 w-full h-72">
-      <!-- Teacher Image -->
-      <img src="{{ widget.image.url }}" alt="{{ widget.name }}" class="w-full h-full object-cover">
-
-      <!-- Overlay for name -->
-      <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white py-2 px-4 text-center">
-        <h3 class="font-semibold text-lg">{{ widget.title }}</h3>
-      </div>
-    </div>
-    {% endfor %}
-  </div>
-   <div id="teacherDots" class="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-2"></div>
-</div>
-
-                <!-- Calendar -->
-                <div class="bg-white border border-gray-300 rounded-lg overflow-hidden">
-                    <div class="bg-green-600 text-white p-4 text-center font-bold">Calendar</div>
-                    <div class=" text-dark p-2 text-center font-bold">OCTOBER 2025</div>
-                    <div class="grid grid-cols-7 gap-0 p-4">
-                        <div class="text-center font-bold text-xs pb-2 border-b border-gray-300">M</div>
-                        <div class="text-center font-bold text-xs pb-2 border-b border-gray-300">T</div>
-                        <div class="text-center font-bold text-xs pb-2 border-b border-gray-300">W</div>
-                        <div class="text-center font-bold text-xs pb-2 border-b border-gray-300">T</div>
-                        <div class="text-center font-bold text-xs pb-2 border-b border-gray-300">F</div>
-                        <div class="text-center font-bold text-xs pb-2 border-b border-gray-300">S</div>
-                        <div class="text-center font-bold text-xs pb-2 border-b border-gray-300">S</div>
-
-                        <!-- Calendar days -->
-                        <div class="text-center text-sm p-2 border border-gray-100">1</div>
-                        <div class="text-center text-sm p-2 border border-gray-100">2</div>
-                        <div class="text-center text-sm p-2 border border-gray-100">3</div>
-                        <div class="text-center text-sm p-2 border border-gray-100">4</div>
-                        <div class="text-center text-sm p-2 border border-gray-100">5</div>
-                        <div class="text-center text-sm p-2 border border-gray-100">6</div>
-                        <div class="text-center text-sm p-2 border border-gray-100">7</div>
-                        <div class="text-center text-sm p-2 border border-gray-100">8</div>
-                        <div class="text-center text-sm p-2 border border-gray-100">9</div>
-                        <div class="text-center text-sm p-2 border border-gray-100">10</div>
-                        <div class="text-center text-sm p-2 border border-gray-100">11</div>
-                        <div class="text-center text-sm p-2 border border-gray-100">12</div>
-                        <div class="text-center text-sm p-2 border border-gray-100">13</div>
-                        <div class="text-center text-sm p-2 border border-gray-100">14</div>
-                        <div class="text-center text-sm p-2 border border-gray-100">15</div>
-                        <div class="text-center text-sm p-2 border border-gray-100">16</div>
-                        <div class="text-center text-sm p-2 border border-gray-100">17</div>
-                        <div class="text-center text-sm p-2 border border-gray-100">18</div>
-                        <div class="text-center text-sm p-2 border border-gray-100">19</div>
-                        <div class="text-center text-sm p-2 border border-gray-100">20</div>
-                        <div class="text-center text-sm p-2 border border-gray-100">21</div>
-                        <div class="text-center text-sm p-2 border border-gray-100">22</div>
-                        <div class="text-center text-sm p-2 border border-gray-100">23</div>
-                        <div class="text-center text-sm p-2 border border-gray-100">24</div>
-                        <div class="text-center text-sm p-2 border border-gray-100">25</div>
-                        <div class="text-center text-sm p-2 border border-gray-100">26</div>
-                        <div class="text-center text-sm p-2 border border-gray-100">27</div>
-                        <div class="text-center text-sm p-2 border border-gray-100">28</div>
-                        <div class="text-center text-sm p-2 border border-gray-100">29</div>
-                        <div class="text-center text-sm p-2 border border-gray-100">30</div>
-                        <div class="text-center text-sm p-2 border border-gray-100 today">31</div>
+                <!-- Sidebar (1/3 width on medium+ screens) -->
+                <div class="lg:col-span-1 space-y-6">
+                    
+                    <div class="relative w-full max-w-2xl mx-auto rounded-xl overflow-hidden shadow-md">
+<div class="bg-green-600 text-white p-4 text-center font-bold rounded-md mb-0">প্রাইমারি শাখা শিক্ষক
                     </div>
-                    <div class="flex justify-between p-4 border-t border-gray-300 text-sm">
-                        <span>« Jun</span>
-                        <span class="text-dark-red font-bold">▼</span>
-                    </div>
-                </div>
+                        <!-- Slider Container -->
+                        <div id="teacherSlider" class="flex transition-transform duration-700 ease-in-out">
+                            {% for widget in widgets %}
+                            <div class="relative flex-shrink-0 w-full h-72">
+                                <!-- Teacher Image -->
+                                <img src="{{ widget.image.url }}" alt="{{ widget.name }}"
+                                    class="w-full h-full object-cover">
 
-                <!-- Important Links -->
-                <div class="bg-white border border-gray-300 rounded-lg">
-                    <div class="bg-green-600 text-white p-3 font-bold rounded-t-lg">Important Links</div>
-                    <ul class="divide-y divide-gray-200">
-                        <li class="py-2"><a href="#"
-                                class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center"><span
-                                    class="play-icon"></span>শিক্ষা মন্ত্রণালয়</a></li>
-                        <li class="py-2"><a href="#"
-                                class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center"><span
-                                    class="play-icon"></span>রাজশাহী শিক্ষা বোর্ড</a></li>
-                        <li class="py-2"><a href="#"
-                                class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center"><span
-                                    class="play-icon"></span>শিক্ষক ও উক্ত শিক্ষক শিক্ষা বোর্ড</a></li>
-                        <li class="py-2"><a href="#"
-                                class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center"><span
-                                    class="play-icon"></span>জাতীয় শিক্ষা নীতিমালা</a></li>
-                        <li class="py-2"><a href="#"
-                                class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center"><span
-                                    class="play-icon"></span>ডিজিটাল বাংলাদেশ</a></li>
-                        <li class="py-2"><a href="#"
-                                class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center"><span
-                                    class="play-icon"></span>গবেষণা বিভাগ মন্ত্রণালয়</a></li>
-                        <li class="py-2"><a href="#"
-                                class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center"><span
-                                    class="play-icon"></span>Shikkhak Natayen</a></li>
-                        <li class="py-2"><a href="#"
-                                class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center"><span
-                                    class="play-icon"></span>EMIS | DSHE</a></li>
-                    </ul>
-                </div>
-
-
-
-
-                <div class="bg-white border border-gray-300 rounded-lg overflow-hidden">
-                    <div class="bg-green-600 text-white p-4 font-bold text-center">হটলাইন</div>
-                    <div class="h-full bg-gray-200 flex items-center justify-center text-gray-500 text-sm">
-                        <img src="https://cmhsr.edu.bd/wp-content/uploads/2023/09/National-Helpline.jpg"
-                            alt="Principal" class="w-full h-full object-cover">
+                                <!-- Overlay for name -->
+                                <div
+                                    class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white py-2 px-4 text-center">
+                                    <h3 class="font-semibold text-lg">{{ widget.title }}</h3>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div id="teacherDots"
+                            class="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-2"></div>
                     </div>
 
-                </div>
 
 
 
+                   
+
+                    <div class="relative w-full max-w-2xl mx-auto rounded-xl overflow-hidden shadow-md">
+                         <div class="bg-green-600 text-white p-4 text-center font-bold rounded-md mb-0">মাধ্যমিক শাখা শিক্ষক</div>
+                        <!-- Slider Container -->
+                        <div id="highSchoolSlider" class="flex transition-transform duration-700 ease-in-out">
+                            {% for widget in high_school_widgets %}
+                            <div class="relative flex-shrink-0 w-full h-72">
+                                <!-- Teacher Image -->
+                                <img src="{{ widget.image.url }}" alt="{{ widget.name }}"
+                                    class="w-full h-full object-cover">
+                                <!-- Overlay for name -->
+                                <div
+                                    class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white py-2 px-4 text-center">
+                                    <h3 class="font-semibold text-lg">{{ widget.title }}</h3>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                        <!-- Navigation Dots -->
+                        <div id="highSchoolDots"
+                            class="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-2"></div>
+                    </div>
 
 
+                    <!-- Calendar -->
+                    <div class="bg-white border border-gray-300 rounded-lg overflow-hidden">
+                        <div class="bg-green-600 text-white p-4 text-center font-bold">Calendar</div>
+                        <div class=" text-dark p-2 text-center font-bold">OCTOBER 2025</div>
+                        <div class="grid grid-cols-7 gap-0 p-4">
+                            <div class="text-center font-bold text-xs pb-2 border-b border-gray-300">M</div>
+                            <div class="text-center font-bold text-xs pb-2 border-b border-gray-300">T</div>
+                            <div class="text-center font-bold text-xs pb-2 border-b border-gray-300">W</div>
+                            <div class="text-center font-bold text-xs pb-2 border-b border-gray-300">T</div>
+                            <div class="text-center font-bold text-xs pb-2 border-b border-gray-300">F</div>
+                            <div class="text-center font-bold text-xs pb-2 border-b border-gray-300">S</div>
+                            <div class="text-center font-bold text-xs pb-2 border-b border-gray-300">S</div>
 
-
-
-
-
-
-            </div>
-        </div>
-    </div>
-
-    <!-- Video Section -->
-    <div class="bg-white py-12 border-t border-b border-gray-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl font-bold text-center mb-8">Recent Videos</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div
-                    class="bg-black aspect-video rounded-lg flex items-center justify-center text-gray-400 cursor-pointer hover:scale-102 transition-transform relative">
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <div class="play-icon w-12 h-12 flex items-center justify-center">
-                            <i
-                                class="fas fa-play text-primary text-xs absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"></i>
+                            <!-- Calendar days -->
+                            <div class="text-center text-sm p-2 border border-gray-100">1</div>
+                            <div class="text-center text-sm p-2 border border-gray-100">2</div>
+                            <div class="text-center text-sm p-2 border border-gray-100">3</div>
+                            <div class="text-center text-sm p-2 border border-gray-100">4</div>
+                            <div class="text-center text-sm p-2 border border-gray-100">5</div>
+                            <div class="text-center text-sm p-2 border border-gray-100">6</div>
+                            <div class="text-center text-sm p-2 border border-gray-100">7</div>
+                            <div class="text-center text-sm p-2 border border-gray-100">8</div>
+                            <div class="text-center text-sm p-2 border border-gray-100">9</div>
+                            <div class="text-center text-sm p-2 border border-gray-100">10</div>
+                            <div class="text-center text-sm p-2 border border-gray-100">11</div>
+                            <div class="text-center text-sm p-2 border border-gray-100">12</div>
+                            <div class="text-center text-sm p-2 border border-gray-100">13</div>
+                            <div class="text-center text-sm p-2 border border-gray-100">14</div>
+                            <div class="text-center text-sm p-2 border border-gray-100">15</div>
+                            <div class="text-center text-sm p-2 border border-gray-100">16</div>
+                            <div class="text-center text-sm p-2 border border-gray-100">17</div>
+                            <div class="text-center text-sm p-2 border border-gray-100">18</div>
+                            <div class="text-center text-sm p-2 border border-gray-100">19</div>
+                            <div class="text-center text-sm p-2 border border-gray-100">20</div>
+                            <div class="text-center text-sm p-2 border border-gray-100">21</div>
+                            <div class="text-center text-sm p-2 border border-gray-100">22</div>
+                            <div class="text-center text-sm p-2 border border-gray-100">23</div>
+                            <div class="text-center text-sm p-2 border border-gray-100">24</div>
+                            <div class="text-center text-sm p-2 border border-gray-100">25</div>
+                            <div class="text-center text-sm p-2 border border-gray-100">26</div>
+                            <div class="text-center text-sm p-2 border border-gray-100">27</div>
+                            <div class="text-center text-sm p-2 border border-gray-100">28</div>
+                            <div class="text-center text-sm p-2 border border-gray-100">29</div>
+                            <div class="text-center text-sm p-2 border border-gray-100">30</div>
+                            <div class="text-center text-sm p-2 border border-gray-100 today">31</div>
+                        </div>
+                        <div class="flex justify-between p-4 border-t border-gray-300 text-sm">
+                            <span>« Jun</span>
+                            <span class="text-dark-red font-bold">▼</span>
                         </div>
                     </div>
-                    Video 1
-                </div>
-                <div
-                    class="bg-black aspect-video rounded-lg flex items-center justify-center text-gray-400 cursor-pointer hover:scale-102 transition-transform relative">
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <div class="play-icon w-12 h-12 flex items-center justify-center">
-                            <i
-                                class="fas fa-play text-primary text-xs absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"></i>
-                        </div>
+
+                    <!-- Important Links -->
+                    <div class="bg-white border border-gray-300 rounded-lg">
+                        <div class="bg-green-600 text-white p-3 font-bold rounded-t-lg">Important Links</div>
+                        <ul class="divide-y divide-gray-200">
+                            <li class="py-2"><a href="#"
+                                    class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center"><span
+                                        class="play-icon"></span>শিক্ষা মন্ত্রণালয়</a></li>
+                            <li class="py-2"><a href="#"
+                                    class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center"><span
+                                        class="play-icon"></span>রাজশাহী শিক্ষা বোর্ড</a></li>
+                            <li class="py-2"><a href="#"
+                                    class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center"><span
+                                        class="play-icon"></span>শিক্ষক ও উক্ত শিক্ষক শিক্ষা বোর্ড</a></li>
+                            <li class="py-2"><a href="#"
+                                    class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center"><span
+                                        class="play-icon"></span>জাতীয় শিক্ষা নীতিমালা</a></li>
+                            <li class="py-2"><a href="#"
+                                    class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center"><span
+                                        class="play-icon"></span>ডিজিটাল বাংলাদেশ</a></li>
+                            <li class="py-2"><a href="#"
+                                    class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center"><span
+                                        class="play-icon"></span>গবেষণা বিভাগ মন্ত্রণালয়</a></li>
+                            <li class="py-2"><a href="#"
+                                    class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center"><span
+                                        class="play-icon"></span>Shikkhak Natayen</a></li>
+                            <li class="py-2"><a href="#"
+                                    class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center"><span
+                                        class="play-icon"></span>EMIS | DSHE</a></li>
+                        </ul>
                     </div>
-                    Video 2
-                </div>
-                <div
-                    class="bg-black aspect-video rounded-lg flex items-center justify-center text-gray-400 cursor-pointer hover:scale-102 transition-transform relative">
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <div class="play-icon w-12 h-12 flex items-center justify-center">
-                            <i
-                                class="fas fa-play text-primary text-xs absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"></i>
+
+
+
+
+                    <div class="bg-white border border-gray-300 rounded-lg overflow-hidden">
+                        <div class="bg-green-600 text-white p-4 font-bold text-center">হটলাইন</div>
+                        <div class="h-full bg-gray-200 flex items-center justify-center text-gray-500 text-sm">
+                            <img src="https://cmhsr.edu.bd/wp-content/uploads/2023/09/National-Helpline.jpg"
+                                alt="Principal" class="w-full h-full object-cover">
                         </div>
+
                     </div>
-                    Video 3
-                </div>
-                <div
-                    class="bg-black aspect-video rounded-lg flex items-center justify-center text-gray-400 cursor-pointer hover:scale-102 transition-transform relative">
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <div class="play-icon w-12 h-12 flex items-center justify-center">
-                            <i
-                                class="fas fa-play text-primary text-xs absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"></i>
-                        </div>
-                    </div>
-                    Video 4
+
+
+
+
+
+
+
+
+
+
+
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Location Section -->
-    <div class="bg-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl font-bold mb-6">Our Location</h2>
-            <div class="h-96 bg-gray-200 rounded-lg flex items-center justify-center text-gray-500">
-                <img src="https://maps.googleapis.com/maps/api/staticmap?center=Rajshahi,Bangladesh&zoom=13&size=600x400&maptype=roadmap&markers=color:red%7CRajshahi,Bangladesh&key=YOUR_API_KEY"
-                    alt="School Location" class="w-full h-full object-cover">
+        <!-- Video Section -->
+        <div class="bg-white py-12 border-t border-b border-gray-300">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl font-bold text-center mb-8">Recent Videos</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div
+                        class="bg-black aspect-video rounded-lg flex items-center justify-center text-gray-400 cursor-pointer hover:scale-102 transition-transform relative">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="play-icon w-12 h-12 flex items-center justify-center">
+                                <i
+                                    class="fas fa-play text-primary text-xs absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"></i>
+                            </div>
+                        </div>
+                        Video 1
+                    </div>
+                    <div
+                        class="bg-black aspect-video rounded-lg flex items-center justify-center text-gray-400 cursor-pointer hover:scale-102 transition-transform relative">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="play-icon w-12 h-12 flex items-center justify-center">
+                                <i
+                                    class="fas fa-play text-primary text-xs absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"></i>
+                            </div>
+                        </div>
+                        Video 2
+                    </div>
+                    <div
+                        class="bg-black aspect-video rounded-lg flex items-center justify-center text-gray-400 cursor-pointer hover:scale-102 transition-transform relative">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="play-icon w-12 h-12 flex items-center justify-center">
+                                <i
+                                    class="fas fa-play text-primary text-xs absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"></i>
+                            </div>
+                        </div>
+                        Video 3
+                    </div>
+                    <div
+                        class="bg-black aspect-video rounded-lg flex items-center justify-center text-gray-400 cursor-pointer hover:scale-102 transition-transform relative">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="play-icon w-12 h-12 flex items-center justify-center">
+                                <i
+                                    class="fas fa-play text-primary text-xs absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"></i>
+                            </div>
+                        </div>
+                        Video 4
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-400 py-8 text-center">
-        <p>All rights reserved © 2025, Court Model High School, Rajshahi. Design & Maintenance by <a href="#"
-                class="text-white hover:text-primary transition-colors">rajIT Solutions ltd.</a></p>
-    </footer>
+        <!-- Location Section -->
+        <div class="bg-white py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl font-bold mb-6">Our Location</h2>
+                <div class="h-96 bg-gray-200 rounded-lg flex items-center justify-center text-gray-500">
+                    <img src="https://maps.googleapis.com/maps/api/staticmap?center=Rajshahi,Bangladesh&zoom=13&size=600x400&maptype=roadmap&markers=color:red%7CRajshahi,Bangladesh&key=YOUR_API_KEY"
+                        alt="School Location" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
 
-    <!-- Scroll to Top Button -->
-    <button
-        class="scroll-to-top fixed bottom-8 right-8 w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center text-xl z-50"
-        id="scroll-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+        <!-- Footer -->
+        <footer class="bg-gray-900 text-gray-400 py-8 text-center">
+            <p>All rights reserved © 2025, Court Model High School, Rajshahi. Design & Maintenance by <a href="#"
+                    class="text-white hover:text-primary transition-colors">rajIT Solutions ltd.</a></p>
+        </footer>
 
-    <script>
-        // Carousel functionality
-       // === Hero Carousel ===
-let heroCurrentSlide = 0;
-const heroSlides = document.querySelectorAll('#carousel-container > div').length;
-const heroContainer = document.getElementById('carousel-container');
+        <!-- Scroll to Top Button -->
+        <button
+            class="scroll-to-top fixed bottom-8 right-8 w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center text-xl z-50"
+            id="scroll-to-top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
 
-function heroNextSlide() {
-  heroCurrentSlide = (heroCurrentSlide + 1) % heroSlides;
-  updateHeroCarousel();
-}
+        <script>
+            // Carousel functionality
+            // === Hero Carousel ===
+            let heroCurrentSlide = 0;
+            const heroSlides = document.querySelectorAll('#carousel-container > div').length;
+            const heroContainer = document.getElementById('carousel-container');
 
-function heroPrevSlide() {
-  heroCurrentSlide = (heroCurrentSlide - 1 + heroSlides) % heroSlides;
-  updateHeroCarousel();
-}
-
-function updateHeroCarousel() {
-  heroContainer.style.transform = `translateX(-${heroCurrentSlide * 100}%)`;
-}
-
-// Auto-advance hero slider
-setInterval(heroNextSlide, 5000);
-
-// Event listeners for hero slider buttons
-document.getElementById('next-btn').addEventListener('click', heroNextSlide);
-document.getElementById('prev-btn').addEventListener('click', heroPrevSlide);
-
-
-        // Mobile menu toggle
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        // Scroll to top button
-        const scrollToTopBtn = document.getElementById('scroll-to-top');
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                scrollToTopBtn.classList.add('visible');
-            } else {
-                scrollToTopBtn.classList.remove('visible');
+            function heroNextSlide() {
+                heroCurrentSlide = (heroCurrentSlide + 1) % heroSlides;
+                updateHeroCarousel();
             }
-        });
 
-        scrollToTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+            function heroPrevSlide() {
+                heroCurrentSlide = (heroCurrentSlide - 1 + heroSlides) % heroSlides;
+                updateHeroCarousel();
+            }
+
+            function updateHeroCarousel() {
+                heroContainer.style.transform = `translateX(-${heroCurrentSlide * 100}%)`;
+            }
+
+            // Auto-advance hero slider
+            setInterval(heroNextSlide, 5000);
+
+            // Event listeners for hero slider buttons
+            document.getElementById('next-btn').addEventListener('click', heroNextSlide);
+            document.getElementById('prev-btn').addEventListener('click', heroPrevSlide);
+
+
+            // Mobile menu toggle
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            menuToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
             });
-        });
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
+            // Close mobile menu when clicking a link
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Scroll to top button
+            const scrollToTopBtn = document.getElementById('scroll-to-top');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    scrollToTopBtn.classList.add('visible');
+                } else {
+                    scrollToTopBtn.classList.remove('visible');
                 }
             });
-        });
+
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
 
 
 
-  const slider = document.getElementById("teacherSlider");
-  const slides = slider.children.length;
-  const dotsContainer = document.getElementById("teacherDots");
-  let index = 0;
+            const slider = document.getElementById("teacherSlider");
+            const slides = slider.children.length;
+            const dotsContainer = document.getElementById("teacherDots");
+            let index = 0;
 
-  // Create dots
-  for (let i = 0; i < slides; i++) {
-    const dot = document.createElement("div");
-    dot.className =
-      "w-2.5 h-2.5 bg-white bg-opacity-60 rounded-full cursor-pointer transition-all duration-300";
-    dot.onclick = () => goToSlide(i);
-    dotsContainer.appendChild(dot);
-  }
+            // Create dots
+            for (let i = 0; i < slides; i++) {
+                const dot = document.createElement("div");
+                dot.className =
+                    "w-2.5 h-2.5 bg-white bg-opacity-60 rounded-full cursor-pointer transition-all duration-300";
+                dot.onclick = () => goToSlide(i);
+                dotsContainer.appendChild(dot);
+            }
 
-  const dots = dotsContainer.children;
-  dots[0].classList.add("bg-opacity-100");
+            const dots = dotsContainer.children;
+            dots[0].classList.add("bg-opacity-100");
 
-  function goToSlide(i) {
-    index = i;
-    slider.style.transform = `translateX(-${i * 100}%)`;
-    updateDots();
-  }
+            function goToSlide(i) {
+                index = i;
+                slider.style.transform = `translateX(-${i * 100}%)`;
+                updateDots();
+            }
 
-  function updateDots() {
-    for (let d of dots) d.classList.remove("bg-opacity-100");
-    dots[index].classList.add("bg-opacity-100");
-  }
+            function updateDots() {
+                for (let d of dots) d.classList.remove("bg-opacity-100");
+                dots[index].classList.add("bg-opacity-100");
+            }
 
-  function nextSlide() {
-    index = (index + 1) % slides;
-    goToSlide(index);
-  }
+            function nextSlide() {
+                index = (index + 1) % slides;
+                goToSlide(index);
+            }
 
-  setInterval(nextSlide, 3500); // Auto slide every 3.5s
-
-
+            setInterval(nextSlide, 3500); // Auto slide every 3.5s
 
 
 
+            // High School Teachers Slider
+            document.addEventListener('DOMContentLoaded', function () {
+                const slider = document.getElementById("highSchoolSlider");
+                const slides = slider.children.length;
+                const dotsContainer = document.getElementById("highSchoolDots");
+                let index = 0;
+
+                // Create dots
+                for (let i = 0; i < slides; i++) {
+                    const dot = document.createElement("div");
+                    dot.className =
+                        "w-2.5 h-2.5 bg-white bg-opacity-60 rounded-full cursor-pointer transition-all duration-300";
+                    dot.onclick = () => goToSlide(i);
+                    dotsContainer.appendChild(dot);
+                }
+
+                const dots = dotsContainer.children;
+                if (slides > 0) {
+                    dots[0].classList.add("bg-opacity-100");
+                }
+
+                function goToSlide(i) {
+                    index = i;
+                    slider.style.transform = `translateX(-${i * 100}%)`;
+                    updateDots();
+                }
+
+                function updateDots() {
+                    for (let d of dots) d.classList.remove("bg-opacity-100");
+                    dots[index].classList.add("bg-opacity-100");
+                }
+
+                function nextSlide() {
+                    index = (index + 1) % slides;
+                    goToSlide(index);
+                }
+
+                // Auto slide every 3.5 seconds
+                setInterval(nextSlide, 3500);
+            });
 
 
-    </script>
+document.addEventListener("DOMContentLoaded", () => {
+    const preview = document.getElementById("aboutPreview");
+    const full = document.getElementById("aboutFull");
+    const btn = document.getElementById("readMoreBtn");
 
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        lucide.createIcons();
-    </script>
+    btn.addEventListener("click", () => {
+        preview.classList.toggle("hidden");
+        full.classList.toggle("hidden");
+        btn.textContent = full.classList.contains("hidden") ? "Read Full" : "Read Less";
+    });
+});
+
+        </script>
+
+        <script src="https://unpkg.com/lucide@latest"></script>
+        <script>
+            lucide.createIcons();
+        </script>
 </body>
 
 </html>

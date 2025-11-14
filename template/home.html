@@ -4,38 +4,56 @@
 
 <!-- About School Section -->
 <div class="bg-white border border-grey-200 rounded-xl shadow-xs p-6 mb-8">
-    <div class="flex flex-col lg:flex-row gap-6 items-center">
-        <!-- School Image -->
-        <div class="w-full lg:w-1/2 flex-shrink-0">
-            <img src="/images/whatsapp-20image-202025-11-14-20at-206.jpeg"
-                 alt="Bochaganj Model School Entrance"
-                 class="w-full h-auto rounded-lg shadow-md object-cover">
-        </div>
-        <!-- About Content -->
-        <div class="w-full lg:w-1/2">
-            <h2 class="text-3xl font-bold mb-4 text-green-700">About Our School</h2>
-            <p class="text-gray-600 leading-relaxed mb-4">
-                Welcome to Bochaganj Model School, a premier educational institution dedicated to nurturing
-                young minds and fostering academic excellence. Our state-of-the-art facilities and dedicated
-                faculty ensure that every student receives quality education in a supportive and inspiring environment.
-            </p>
-            <div class="space-y-2">
-                <div class="flex items-center gap-3">
-                    <i data-lucide="check-circle" class="text-green-700 w-5 h-5"></i>
-                    <span class="text-gray-700">World-class infrastructure and modern classrooms</span>
-                </div>
-                <div class="flex items-center gap-3">
-                    <i data-lucide="check-circle" class="text-green-700 w-5 h-5"></i>
-                    <span class="text-gray-700">Experienced and qualified teaching staff</span>
-                </div>
-                <div class="flex items-center gap-3">
-                    <i data-lucide="check-circle" class="text-green-700 w-5 h-5"></i>
-                    <span class="text-gray-700">Comprehensive curriculum and extracurricular activities</span>
-                </div>
-            </div>
-        </div>
+
+    <h2 class="text-xl text-center font-bold mb-4 text-green-700">স্কুল সম্পর্কে</h2>
+    <!-- Images stacked serially - one on top of another, full width -->
+    <div class="mb-6">
+        <img src="{{info.school_image.url}}" 
+             alt="Bochaganj Model School Entrance" 
+             class="w-full h-auto rounded-lg shadow-md object-cover mb-4">
+        <img src="{{info.school_image_sec.url}}" 
+             alt="Bochaganj Model School Entrance" 
+             class="w-full h-auto rounded-lg shadow-md object-cover">
+    </div>
+    
+    <!-- Text section with read more toggle -->
+    <div>
+
+        
+        <!-- Preview text shown by default -->
+        <p class="text-gray-600 leading-relaxed mb-4" id="aboutPreview">
+            {{ info.about_school|safe|truncatewords:30 }}
+        </p>
+        
+        <!-- Full text hidden by default -->
+     <div id="aboutFull" class="text-gray-600 leading-relaxed mb-4 hidden">
+    <div class="school-text">
+        {{ info.about_school|safe }}
     </div>
 </div>
+        
+        <!-- Read More/Less button -->
+        <button id="readMoreBtn" class="text-green-700 font-semibold hover:text-green-800 transition mb-4">
+            Read Full
+        </button>
+    </div>
+</div>
+
+<div class="p-6 mb-8">
+
+    <h2 class="text-xl text-center font-bold mb-4 text-green-700">কেন বোচাগঞ্জ মডেল স্কুল?</h2>
+
+    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Gemini_Generated_Image_cbbjo8cbbjo8cbbj-sgdxoUgRVWhyi8hA41b74ZUHBEbZCg.png" 
+             alt="Bochaganj Model School Entrance" 
+             class="w-full h-auto rounded-lg shadow-md object-cover mb-4">
+
+</div>
+
+
+
+
+
+
 
 <!-- Features Grid -->
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 mb-8">

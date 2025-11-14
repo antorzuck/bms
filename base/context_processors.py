@@ -1,4 +1,4 @@
-from .models import Info, Porichalok, HeadTeacher, Widget, Banner
+from .models import Info, Porichalok, HeadTeacher, Widget, Banner, MaddhomikTeacher
 
 def global_context(request):
     context = {}
@@ -9,5 +9,6 @@ def global_context(request):
     context['headteacher'] = HeadTeacher.objects.first()
     context['widgets'] = Widget.objects.all()
     context['b'] = Banner.objects.all()
+    context['high_school_widgets'] = MaddhomikTeacher.objects.all()
 
     return context

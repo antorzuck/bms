@@ -12,7 +12,7 @@ class BaseModel(models.Model):
 
     class Meta:
         abstract = True 
-        ordering = ['-created_at']
+        ordering = ['-id']
 
     def __str__(self):
         return f"{self.__class__.__name__} (id={self.pk})"
@@ -27,6 +27,11 @@ class Info(BaseModel):
     phone = models.CharField(max_length=500)
     email = models.CharField(max_length=500)
     logo = models.FileField(upload_to='logo')
+
+    about_school = CKEditor5Field()
+    school_image = models.FileField()
+    school_image_sec = models.FileField()
+
 
 
 class Porichalok(BaseModel):
@@ -62,4 +67,10 @@ class Widget(BaseModel):
     title = models.CharField()
     image = models.FileField(upload_to='teachers')
     text = CKEditor5Field()
+
+class MaddhomikTeacher(BaseModel):
+    title = models.CharField()
+    image = models.FileField(upload_to='teachers')
+    text = CKEditor5Field()
+
 
