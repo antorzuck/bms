@@ -11,7 +11,7 @@ def home(r):
 
     notice = Notice.objects.all().order_by('-id')
 
-    categories = Category.objects.prefetch_related('subcategories').all()
+    categories = Category.objects.prefetch_related('subcategories').all().order_by('-id')
 
 
     context = {

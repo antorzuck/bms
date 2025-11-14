@@ -1,34 +1,44 @@
 {% extends 'main.html' %}
 
-
-
 {% block body %}
 
-<!-- Notice Board -->
-<div class="bg-white border border-grey-200 rounded-xl shadow-xs p-4 flex flex-col sm:flex-row gap-4">
-    <div
-        class="w-20 h-20 bg-gradient-to-br from-green-300 to-green-400 rounded-full flex items-center justify-center text-2xl flex-shrink-0">
-        🌐
-    </div>
-    <div class="flex-1">
-        <h2 class="text-2xl font-bold mb-4">Notice Board</h2>
-        <ul class="space-y-2 mb-4">
-
-            {% for n in notice %}
-            <li class="text-gray-600 pl-6 relative flex items-center gap-2">
-                <i data-lucide="circle-chevron-right" class="text-green-700 w-5 h-5"></i>
-                <a href="/notices/{{n.id}}" class="hover:underline">{{n.title}}</a>
-            </li>
-            {% endfor %}
-
-        </ul>
-        <button class="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-md float-right transition">View
-            All</button>
+<!-- About School Section -->
+<div class="bg-white border border-grey-200 rounded-xl shadow-xs p-6 mb-8">
+    <div class="flex flex-col lg:flex-row gap-6 items-center">
+        <!-- School Image -->
+        <div class="w-full lg:w-1/2 flex-shrink-0">
+            <img src="/images/whatsapp-20image-202025-11-14-20at-206.jpeg"
+                 alt="Bochaganj Model School Entrance"
+                 class="w-full h-auto rounded-lg shadow-md object-cover">
+        </div>
+        <!-- About Content -->
+        <div class="w-full lg:w-1/2">
+            <h2 class="text-3xl font-bold mb-4 text-green-700">About Our School</h2>
+            <p class="text-gray-600 leading-relaxed mb-4">
+                Welcome to Bochaganj Model School, a premier educational institution dedicated to nurturing
+                young minds and fostering academic excellence. Our state-of-the-art facilities and dedicated
+                faculty ensure that every student receives quality education in a supportive and inspiring environment.
+            </p>
+            <div class="space-y-2">
+                <div class="flex items-center gap-3">
+                    <i data-lucide="check-circle" class="text-green-700 w-5 h-5"></i>
+                    <span class="text-gray-700">World-class infrastructure and modern classrooms</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <i data-lucide="check-circle" class="text-green-700 w-5 h-5"></i>
+                    <span class="text-gray-700">Experienced and qualified teaching staff</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <i data-lucide="check-circle" class="text-green-700 w-5 h-5"></i>
+                    <span class="text-gray-700">Comprehensive curriculum and extracurricular activities</span>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
 <!-- Features Grid -->
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 mb-8">
     <!-- Feature Card 1 -->
 
       {% for category in categories %}
@@ -56,10 +66,29 @@
     </div>
     {% endfor %}
 
-    
-    
-</div>
 </div>
 
+<!-- Notice Board - Moved to Bottom -->
+<div class="bg-white border border-grey-200 rounded-xl shadow-xs p-4 flex flex-col sm:flex-row gap-4">
+    <div
+        class="w-20 h-20 bg-gradient-to-br from-green-300 to-green-400 rounded-full flex items-center justify-center text-2xl flex-shrink-0">
+        🌐
+    </div>
+    <div class="flex-1">
+        <h2 class="text-2xl font-bold mb-4">Notice Board</h2>
+        <ul class="space-y-2 mb-4">
 
+            {% for n in notice %}
+            <li class="text-gray-600 pl-6 relative flex items-center gap-2">
+                <i data-lucide="circle-chevron-right" class="text-green-700 w-5 h-5"></i>
+                <a href="/notices/{{n.id}}" class="hover:underline">{{n.title}}</a>
+            </li>
+            {% endfor %}
+
+        </ul>
+        <button class="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-md float-right transition">View
+            All</button>
+    </div>
+</div>
+</div>
 {% endblock %}
