@@ -39,19 +39,41 @@
     </div>
 </div>
 
-<div class="p-6 mb-8">
+<div class="p-6 mb-8 bg-white rounded-xl">
 
     <h2 class="text-xl text-center font-bold mb-4 text-green-700">কেন বোচাগঞ্জ মডেল স্কুল?</h2>
 
     <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Gemini_Generated_Image_cbbjo8cbbjo8cbbj-sgdxoUgRVWhyi8hA41b74ZUHBEbZCg.png" 
              alt="Bochaganj Model School Entrance" 
-             class="w-full h-auto rounded-lg shadow-md object-cover mb-4">
+             class="w-full h-auto rounded-lg object-cover mb-4">
 
 </div>
 
 
 
+<div class="bg-white border border-gray-200 rounded-xl shadow-md p-4">
+    <div class="flex items-center gap-4 mb-3">
+        <div
+            class="w-16 h-16 bg-gradient-to-br from-green-300 to-green-400 rounded-full flex items-center justify-center text-2xl flex-shrink-0">
+            🌐
+        </div>
+        <h2 class="text-2xl font-bold">Notice Board</h2>
+    </div>
 
+    <!-- Scrolling Notice Wrapper -->
+    <div class="overflow-hidden h-52 relative">
+        <ul id="noticeScroller" class="absolute w-full space-y-2">
+            {% for n in notice %}
+            <li class="text-gray-700 flex items-center gap-2">
+                <i data-lucide="circle-chevron-right" class="text-green-700 w-5 h-5"></i>
+                <a href="/notices/{{n.id}}" class="hover:underline text-lg">{{ n.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+
+</div>
 
 
 
@@ -86,27 +108,5 @@
 
 </div>
 
-<!-- Notice Board - Moved to Bottom -->
-<div class="bg-white border border-grey-200 rounded-xl shadow-xs p-4 flex flex-col sm:flex-row gap-4">
-    <div
-        class="w-20 h-20 bg-gradient-to-br from-green-300 to-green-400 rounded-full flex items-center justify-center text-2xl flex-shrink-0">
-        🌐
-    </div>
-    <div class="flex-1">
-        <h2 class="text-2xl font-bold mb-4">Notice Board</h2>
-        <ul class="space-y-2 mb-4">
-
-            {% for n in notice %}
-            <li class="text-gray-600 pl-6 relative flex items-center gap-2">
-                <i data-lucide="circle-chevron-right" class="text-green-700 w-5 h-5"></i>
-                <a href="/notices/{{n.id}}" class="hover:underline">{{n.title}}</a>
-            </li>
-            {% endfor %}
-
-        </ul>
-        <button class="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-md float-right transition">View
-            All</button>
-    </div>
-</div>
 </div>
 {% endblock %}

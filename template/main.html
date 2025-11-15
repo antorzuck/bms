@@ -42,7 +42,7 @@
 
         .hidden-text {
             display: none;
-                }
+        }
 
         .custom-scrollbar::-webkit-scrollbar {
             width: 6px;
@@ -152,7 +152,7 @@
 
 
 
-    <nav class="bg-dark-red sticky top-0 z-50 shadow-md">
+    <nav class="bg-green-600 sticky top-0 z-50 shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <div class="flex items-center gap-4">
@@ -192,13 +192,14 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto px-4 sm:px-6 lg:px-12 py-8">
 
         <!-- Hero Carousel -->
-        <div class="my-auto md:col-span-2 relative h-72 sm:h-80 overflow-hidden bg-black rounded-lg" id="carousel">
+      <div class="my-auto md:col-span-2 relative h-96 sm:h-[32rem] overflow-hidden bg-black rounded-lg" id="carousel">
+
             <div class="flex h-full transition-transform duration-500 ease-in-out" id="carousel-container">
                 {% for i in b %} <!-- Slide 1 -->
                 <div class="min-w-full h-full relative">
                     <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('{{i.file.url}}');">
                     </div>
-                    <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+                    <div class="absolute inset-0 bg-black bg-opacity-30"></div>
                     <div
                         class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-10 max-w-[90%]">
                         <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">{{i.text}}</h1>
@@ -285,51 +286,53 @@
 
 
 
-            <div class="bg-yellow-400 bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 font-semibold rounded-xl p-5 shadow-md mt-4 space-y-5 max-w-xl mx-auto">
+            <div
+                class="bg-yellow-400 bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 font-semibold rounded-xl p-5 shadow-md mt-4 space-y-5 max-w-xl mx-auto">
 
-    <!-- Primary Section -->
-    <div class="bg-white/20 rounded-lg p-4 shadow-sm space-y-2">
-        <h3 class="text-lg font-bold flex items-center gap-2">
-            🏫 প্রাথমিক শাখা
-        </h3>
-        <div class="flex items-center gap-2">
-            <span>📅</span>
-            <p>স্থাপিত সন - ২০২২ ইং</p>
-        </div>
-        <div class="flex items-center gap-2">
-            <span>📘</span>
-            <p>বিয়ান্য কোড - ৪৫৭৯৫২</p>
-        </div>
-        <div class="flex items-center gap-2">
-            <span>📞</span>
-            <p>টেলিফোন - ০১৩২৫৩৩৩৪৮১</p>
-        </div>
-    </div>
+                <!-- Primary Section -->
+                <div class="bg-white/20 rounded-lg p-4 shadow-sm space-y-2">
+                    <h3 class="text-lg font-bold flex items-center gap-2">
+                        🏫 প্রাথমিক শাখা
+                    </h3>
+                    <div class="flex items-center gap-2">
+                        <span>📅</span>
+                        <p>স্থাপিত সন - ২০২২ ইং</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span>📘</span>
+                        <p>বিদ্যালয় কোড - ৪৫৭৯৫২</p>
+                    </div>
+                     <div class="flex items-center gap-2">
+                        <span>📞</span>
+                        <p>টেলিফোন - ০১৩২৫৩৩৩৪৮১</p>
+                    </div>
+                   
+                </div>
 
-    <!-- High School Section -->
-    <div class="bg-white/20 rounded-lg p-4 shadow-sm space-y-2">
-        <h3 class="text-lg font-bold flex items-center gap-2">
-            🏫 মাধ্যমিক শাখা
-        </h3>
-        <div class="flex items-center gap-2">
-            <span>📅</span>
-            <p>স্থাপিত সন - ২০২২ ইং</p>
-        </div>
-        <div class="flex items-center gap-2">
-            <span>📘</span>
-            <p>EIIN নাম্বার - 139711</p>
-        </div>
-        <div class="flex items-center gap-2">
-            <span>🔢</span>
-            <p>CODE - 8067</p>
-        </div>
-        <div class="flex items-center gap-2">
-            <span>📞</span>
-            <p>টেলিফোন - ০১৩২৫৩৩৩৪৮১</p>
-        </div>
-    </div>
+                <!-- High School Section -->
+                <div class="bg-white/20 rounded-lg p-4 shadow-sm space-y-2">
+                    <h3 class="text-lg font-bold flex items-center gap-2">
+                        🏫 মাধ্যমিক শাখা
+                    </h3>
+                    <div class="flex items-center gap-2">
+                        <span>📅</span>
+                        <p>স্থাপিত সন - ২০২২ ইং</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span>📘</span>
+                        <p>EIIN নাম্বার - 139711</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span>🔢</span>
+                        <p>বিদ্যালয় কোড - 8067</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span>📞</span>
+                        <p>টেলিফোন - ০১৩২৫৩৩৩৪৮১</p>
+                    </div>
+                </div>
 
-</div>
+            </div>
 
 
         </div>
@@ -368,23 +371,28 @@
 
                 <!-- Sidebar (1/3 width on medium+ screens) -->
                 <div class="lg:col-span-1 space-y-6">
-                    
+
                     <div class="relative w-full max-w-2xl mx-auto rounded-xl overflow-hidden shadow-md">
-<div class="bg-green-600 text-white p-4 text-center font-bold rounded-md mb-0">প্রাইমারি শাখা শিক্ষক
-                    </div>
+                        <div class="bg-green-600 text-white p-4 text-center font-bold rounded-md mb-0">প্রাথমিক শাখা
+                            শিক্ষক
+                        </div>
                         <!-- Slider Container -->
                         <div id="teacherSlider" class="flex transition-transform duration-700 ease-in-out">
                             {% for widget in widgets %}
+                             <a href="/widget/{{widget.id}}">
                             <div class="relative flex-shrink-0 w-full h-72">
                                 <!-- Teacher Image -->
                                 <img src="{{ widget.image.url }}" alt="{{ widget.name }}"
                                     class="w-full h-full object-cover">
 
                                 <!-- Overlay for name -->
+
+                               
                                 <div
                                     class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white py-2 px-4 text-center">
                                     <h3 class="font-semibold text-lg">{{ widget.title }}</h3>
                                 </div>
+                                </a>
                             </div>
                             {% endfor %}
                         </div>
@@ -395,13 +403,16 @@
 
 
 
-                   
+
 
                     <div class="relative w-full max-w-2xl mx-auto rounded-xl overflow-hidden shadow-md">
-                         <div class="bg-green-600 text-white p-4 text-center font-bold rounded-md mb-0">মাধ্যমিক শাখা শিক্ষক</div>
+                        <div class="bg-green-600 text-white p-4 text-center font-bold rounded-md mb-0">মাধ্যমিক শাখা
+                            শিক্ষক</div>
                         <!-- Slider Container -->
                         <div id="highSchoolSlider" class="flex transition-transform duration-700 ease-in-out">
                             {% for widget in high_school_widgets %}
+
+                                  <a href="/get-maddhomik/{{widget.id}}">
                             <div class="relative flex-shrink-0 w-full h-72">
                                 <!-- Teacher Image -->
                                 <img src="{{ widget.image.url }}" alt="{{ widget.name }}"
@@ -412,6 +423,7 @@
                                     <h3 class="font-semibold text-lg">{{ widget.title }}</h3>
                                 </div>
                             </div>
+                            </a>
                             {% endfor %}
                         </div>
 
@@ -422,57 +434,29 @@
 
 
                     <!-- Calendar -->
-                    <div class="bg-white border border-gray-300 rounded-lg overflow-hidden">
-                        <div class="bg-green-600 text-white p-4 text-center font-bold">Calendar</div>
-                        <div class=" text-dark p-2 text-center font-bold">OCTOBER 2025</div>
-                        <div class="grid grid-cols-7 gap-0 p-4">
-                            <div class="text-center font-bold text-xs pb-2 border-b border-gray-300">M</div>
-                            <div class="text-center font-bold text-xs pb-2 border-b border-gray-300">T</div>
-                            <div class="text-center font-bold text-xs pb-2 border-b border-gray-300">W</div>
-                            <div class="text-center font-bold text-xs pb-2 border-b border-gray-300">T</div>
-                            <div class="text-center font-bold text-xs pb-2 border-b border-gray-300">F</div>
-                            <div class="text-center font-bold text-xs pb-2 border-b border-gray-300">S</div>
-                            <div class="text-center font-bold text-xs pb-2 border-b border-gray-300">S</div>
+<div class="bg-white border border-gray-300 rounded-lg overflow-hidden">
+    <div id="calendar-header" class="bg-green-600 text-white p-4 text-center font-bold">ক্যালেনডার</div>
 
-                            <!-- Calendar days -->
-                            <div class="text-center text-sm p-2 border border-gray-100">1</div>
-                            <div class="text-center text-sm p-2 border border-gray-100">2</div>
-                            <div class="text-center text-sm p-2 border border-gray-100">3</div>
-                            <div class="text-center text-sm p-2 border border-gray-100">4</div>
-                            <div class="text-center text-sm p-2 border border-gray-100">5</div>
-                            <div class="text-center text-sm p-2 border border-gray-100">6</div>
-                            <div class="text-center text-sm p-2 border border-gray-100">7</div>
-                            <div class="text-center text-sm p-2 border border-gray-100">8</div>
-                            <div class="text-center text-sm p-2 border border-gray-100">9</div>
-                            <div class="text-center text-sm p-2 border border-gray-100">10</div>
-                            <div class="text-center text-sm p-2 border border-gray-100">11</div>
-                            <div class="text-center text-sm p-2 border border-gray-100">12</div>
-                            <div class="text-center text-sm p-2 border border-gray-100">13</div>
-                            <div class="text-center text-sm p-2 border border-gray-100">14</div>
-                            <div class="text-center text-sm p-2 border border-gray-100">15</div>
-                            <div class="text-center text-sm p-2 border border-gray-100">16</div>
-                            <div class="text-center text-sm p-2 border border-gray-100">17</div>
-                            <div class="text-center text-sm p-2 border border-gray-100">18</div>
-                            <div class="text-center text-sm p-2 border border-gray-100">19</div>
-                            <div class="text-center text-sm p-2 border border-gray-100">20</div>
-                            <div class="text-center text-sm p-2 border border-gray-100">21</div>
-                            <div class="text-center text-sm p-2 border border-gray-100">22</div>
-                            <div class="text-center text-sm p-2 border border-gray-100">23</div>
-                            <div class="text-center text-sm p-2 border border-gray-100">24</div>
-                            <div class="text-center text-sm p-2 border border-gray-100">25</div>
-                            <div class="text-center text-sm p-2 border border-gray-100">26</div>
-                            <div class="text-center text-sm p-2 border border-gray-100">27</div>
-                            <div class="text-center text-sm p-2 border border-gray-100">28</div>
-                            <div class="text-center text-sm p-2 border border-gray-100">29</div>
-                            <div class="text-center text-sm p-2 border border-gray-100">30</div>
-                            <div class="text-center text-sm p-2 border border-gray-100 today">31</div>
-                        </div>
-                        <div class="flex justify-between p-4 border-t border-gray-300 text-sm">
-                            <span>« Jun</span>
-                            <span class="text-dark-red font-bold">▼</span>
-                        </div>
-                    </div>
+    <div class="text-dark p-2 text-center font-bold" id="calendar-month-year"></div>
 
+    <div class="grid grid-cols-7 gap-0 p-4 text-xs font-bold">
+        <div class="text-center pb-2 border-b border-gray-300">M</div>
+        <div class="text-center pb-2 border-b border-gray-300">T</div>
+        <div class="text-center pb-2 border-b border-gray-300">W</div>
+        <div class="text-center pb-2 border-b border-gray-300">T</div>
+        <div class="text-center pb-2 border-b border-gray-300">F</div>
+        <div class="text-center pb-2 border-b border-gray-300">S</div>
+        <div class="text-center pb-2 border-b border-gray-300">S</div>
+    </div>
+
+    <!-- Days will be printed here -->
+    <div id="calendar-days" class="grid grid-cols-7 gap-0 px-4 pb-4"></div>
+
+    <div class="flex justify-between p-4 border-t border-gray-300 text-sm">
+        <button id="prev-btn" class="cursor-pointer">« Prev</button>
+        <button id="next-btn" class="cursor-pointer">Next »</button>
+    </div>
+</div>
                     <!-- Important Links -->
                     <div class="bg-white border border-gray-300 rounded-lg">
                         <div class="bg-green-600 text-white p-3 font-bold rounded-t-lg">Important Links</div>
@@ -532,68 +516,54 @@
 
         <!-- Video Section -->
         <div class="bg-white py-12 border-t border-b border-gray-300">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-2xl font-bold text-center mb-8">Recent Videos</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div
-                        class="bg-black aspect-video rounded-lg flex items-center justify-center text-gray-400 cursor-pointer hover:scale-102 transition-transform relative">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <div class="play-icon w-12 h-12 flex items-center justify-center">
-                                <i
-                                    class="fas fa-play text-primary text-xs absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"></i>
-                            </div>
-                        </div>
-                        Video 1
-                    </div>
-                    <div
-                        class="bg-black aspect-video rounded-lg flex items-center justify-center text-gray-400 cursor-pointer hover:scale-102 transition-transform relative">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <div class="play-icon w-12 h-12 flex items-center justify-center">
-                                <i
-                                    class="fas fa-play text-primary text-xs absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"></i>
-                            </div>
-                        </div>
-                        Video 2
-                    </div>
-                    <div
-                        class="bg-black aspect-video rounded-lg flex items-center justify-center text-gray-400 cursor-pointer hover:scale-102 transition-transform relative">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <div class="play-icon w-12 h-12 flex items-center justify-center">
-                                <i
-                                    class="fas fa-play text-primary text-xs absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"></i>
-                            </div>
-                        </div>
-                        Video 3
-                    </div>
-                    <div
-                        class="bg-black aspect-video rounded-lg flex items-center justify-center text-gray-400 cursor-pointer hover:scale-102 transition-transform relative">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <div class="play-icon w-12 h-12 flex items-center justify-center">
-                                <i
-                                    class="fas fa-play text-primary text-xs absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"></i>
-                            </div>
-                        </div>
-                        Video 4
-                    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-bold text-center mb-8">Image Gallery</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {% for img in gallery %}
+            <div class="relative group overflow-hidden rounded-lg cursor-pointer">
+                <img src="{{ img.file.url }}" alt="Gallery Image"
+                     class="w-full h-full object-cover aspect-video transform group-hover:scale-110 transition duration-500">
+
+                <!-- Overlay on hover -->
+                <div
+                    class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center text-white text-lg font-semibold">
+                    View Image
                 </div>
             </div>
+            {% endfor %}
         </div>
+
+        <!-- Optional View All button -->
+        <div class="text-center mt-8">
+            <a href="/"
+               class="bg-gray-800 text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-gray-900 transition">
+               View All Photos
+            </a>
+        </div>
+    </div>
+</div>
 
         <!-- Location Section -->
         <div class="bg-white py-12">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-2xl font-bold mb-6">Our Location</h2>
-                <div class="h-96 bg-gray-200 rounded-lg flex items-center justify-center text-gray-500">
-                    <img src="https://maps.googleapis.com/maps/api/staticmap?center=Rajshahi,Bangladesh&zoom=13&size=600x400&maptype=roadmap&markers=color:red%7CRajshahi,Bangladesh&key=YOUR_API_KEY"
-                        alt="School Location" class="w-full h-full object-cover">
+                <div class="h-96 bg-gray-200 rounded-lg overflow-hidden">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1796.012393757005!2d88.4604409!3d25.8027563!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e4c90c4a713373%3A0xe4ae6b4a7ff40db6!2sBochaganj%20Model%20School!5e0!3m2!1sen!2sbd!4v1763195961933!5m2!1sen!2sbd"
+                        class="w-full h-full" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
             </div>
         </div>
 
+
         <!-- Footer -->
         <footer class="bg-gray-900 text-gray-400 py-8 text-center">
-            <p>All rights reserved © 2025, Court Model High School, Rajshahi. Design & Maintenance by <a href="#"
-                    class="text-white hover:text-primary transition-colors">rajIT Solutions ltd.</a></p>
+            <p>All rights reserved © 2025, Bochaganj Model School, Dinajpur. Design & Maintenance by <a
+                    href="https://facebook.com/antorzuk" class="text-white hover:text-primary transition-colors">Antor
+                    Bepary</a></p>
         </footer>
 
         <!-- Scroll to Top Button -->
@@ -759,18 +729,84 @@
             });
 
 
-document.addEventListener("DOMContentLoaded", () => {
-    const preview = document.getElementById("aboutPreview");
-    const full = document.getElementById("aboutFull");
-    const btn = document.getElementById("readMoreBtn");
+            document.addEventListener("DOMContentLoaded", () => {
+                const preview = document.getElementById("aboutPreview");
+                const full = document.getElementById("aboutFull");
+                const btn = document.getElementById("readMoreBtn");
 
-    btn.addEventListener("click", () => {
-        preview.classList.toggle("hidden");
-        full.classList.toggle("hidden");
-        btn.textContent = full.classList.contains("hidden") ? "Read Full" : "Read Less";
-    });
-});
+                btn.addEventListener("click", () => {
+                    preview.classList.toggle("hidden");
+                    full.classList.toggle("hidden");
+                    btn.textContent = full.classList.contains("hidden") ? "Read Full" : "Read Less";
+                });
+            });
 
+
+
+
+            const scroller = document.getElementById("noticeScroller");
+            let scrollPos = 0;
+
+            function scrollNotices() {
+                scrollPos += 1;
+                scroller.style.top = `-${scrollPos}px`;
+
+                // Reset when fully scrolled
+                if (scrollPos >= scroller.scrollHeight - 40) {
+                    scrollPos = 0;
+                }
+            }
+            setInterval(scrollNotices, 40); // Speed control
+
+    const monthYear = document.getElementById("calendar-month-year");
+    const daysContainer = document.getElementById("calendar-days");
+
+    let date = new Date();
+
+    function renderCalendar() {
+        const year = date.getFullYear();
+        const month = date.getMonth();
+
+        const firstDay = new Date(year, month, 1).getDay();
+        const lastDate = new Date(year, month + 1, 0).getDate();
+        const today = new Date();
+
+        const monthNames = [
+            "JANUARY","FEBRUARY","MARCH","APRIL","MAY","JUNE",
+            "JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER"
+        ];
+
+        monthYear.innerHTML = `${monthNames[month]} ${year}`;
+
+        daysContainer.innerHTML = "";
+
+        // Blank days before 1st
+        let blanks = (firstDay + 6) % 7;
+        for (let i = 0; i < blanks; i++) {
+            daysContainer.innerHTML += `<div class="border border-gray-100 p-2"></div>`;
+        }
+
+        // Actual days
+        for (let d = 1; d <= lastDate; d++) {
+            const isToday = d == today.getDate() && month == today.getMonth() && year == today.getFullYear();
+            daysContainer.innerHTML += `
+                <div class="text-center text-sm p-2 border border-gray-100 ${isToday ? 'bg-green-600 text-white font-bold rounded-full' : ''}">
+                    ${d}
+                </div>
+            `;
+        }
+    }
+
+    document.getElementById("prev-btn").onclick = () => {
+        date.setMonth(date.getMonth() - 1);
+        renderCalendar();
+    };
+    document.getElementById("next-btn").onclick = () => {
+        date.setMonth(date.getMonth() + 1);
+        renderCalendar();
+    };
+
+    renderCalendar();
         </script>
 
         <script src="https://unpkg.com/lucide@latest"></script>

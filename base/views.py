@@ -11,7 +11,7 @@ def home(r):
 
     notice = Notice.objects.all().order_by('-id')
 
-    categories = Category.objects.prefetch_related('subcategories').all().order_by('-id')
+    categories = Category.objects.prefetch_related('subcategories').all().order_by('id')
 
 
     context = {
@@ -41,3 +41,18 @@ def get_head(r):
 def notice_detail(request, id):
     notice = get_object_or_404(Notice, id=id)
     return render(request, 'content.html', {'text': notice.text})
+
+def get_widget(r, id):
+   pori = Widget.objects.get(id=id)
+   context = {
+    'text' : pori.text
+    }
+   return render(r, 'content.html', context)
+
+
+def get_maddhomik(r, id):
+   pori = MaddhomikTeacher.objects.get(id=id)
+   context = {
+    'text' : pori.text
+    }
+   return render(r, 'content.html', context)

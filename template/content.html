@@ -1,7 +1,24 @@
 {% extends 'main.html' %}
 
-
 {% block body %}
 
-{{text|safe}} </div>
+<section id="scroll-target">
+    {% if text %}
+
+    {{ text|safe }}
+
+    {% else %}
+Nothing is here.....
+    {% endif %}
+</section>
+</div>
+<script>
+    // Auto scroll after page loads
+    window.addEventListener("load", () => {
+        document.getElementById("scroll-target").scrollIntoView({
+            behavior: "smooth"
+        });
+    });
+</script>
+
 {% endblock %}

@@ -12,7 +12,7 @@ class BaseModel(models.Model):
 
     class Meta:
         abstract = True 
-        ordering = ['-id']
+        ordering = ['id']
 
     def __str__(self):
         return f"{self.__class__.__name__} (id={self.pk})"
@@ -20,6 +20,11 @@ class BaseModel(models.Model):
 class Banner(BaseModel):
     file = models.FileField(upload_to="banner")
     text = models.CharField(max_length=500)
+
+
+class Gellery(BaseModel):
+    image = models.FileField(upload_to="gellery")
+
 
 class Info(BaseModel):
     name = models.CharField(max_length=500)
