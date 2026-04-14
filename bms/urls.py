@@ -10,6 +10,8 @@ urlpatterns = [
     path('', home),
     path('porichalok', get_pori),
     path('head', get_head),
+    path('allimg', all_img),
+    path('allvideo', all_vid),
     path('widget/<int:id>/', get_widget),
     path('get-maddhomik/<int:id>', get_maddhomik),
     path('subcategory/<int:id>/', subcategory_detail),

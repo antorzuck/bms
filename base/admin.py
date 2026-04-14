@@ -6,6 +6,10 @@ admin.site.register(Banner)
 
 admin.site.register(Porichalok)
 admin.site.register(Info)
+admin.site.register(Gellery)
+admin.site.register(News)
+admin.site.register(Videos)
+admin.site.register(Calender)
 
 @admin.register(HeadTeacher)
 class HeadTeacherAdmin(admin.ModelAdmin):

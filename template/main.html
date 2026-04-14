@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
 
-    <title>Bochaganj Model School - Setabganj</title>
+    <title>Bochaganj Model School - Setabganj, Dinajpur.</title>
 <script src="https://cdn.tailwindcss.com/3.4.3"></script>
+<link rel="icon" type="image/png" href="https://bochaganjmodelschool.com/media/logo/logo.png">
 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -26,7 +27,7 @@
         }
     </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Signika:wght@300..700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Hind+Siligri:wght@300;400;500;600;700&family=Signika:wght@300..700&display=swap');
 
 
         @media (max-width: 767px) {
@@ -343,9 +344,7 @@
     <!-- News Section -->
     <div class="bg-red-600 text-white py-2">
         <div class="marquee">
-            <span>🔔 সর্বশেষ সংবাদ: বার্ষিক পরীক্ষা ২০২৫ এর রুটিন প্রকাশিত হয়েছে | ভর্তি চলছে ২০২৬ শিক্ষাবর্ষের জন্য |
-                আগামী ১৫ নভেম্বর বার্ষিক ক্রীড়া প্রতিযোগিতা অনুষ্ঠিত হবে | শীতকালীন ছুটি: ১ জানুয়ারি থেকে ১৫ জানুয়ারি
-                ২০২৬</span>
+            <span>🔔 সর্বশেষ সংবাদ: {{news.text}} </span>
         </div>
     </div>
 
@@ -406,27 +405,25 @@
 
 
 
-                    <div class="relative w-full max-w-2xl mx-auto rounded-xl overflow-hidden shadow-md">
-                        <div class="bg-green-600 text-white p-4 text-center font-bold rounded-md mb-0">মাধ্যমিক শাখা
-                            শিক্ষক</div>
-                        <!-- Slider Container -->
-                        <div id="highSchoolSlider" class="flex transition-transform duration-700 ease-in-out">
-                            {% for widget in high_school_widgets %}
 
-                                  <a href="/get-maddhomik/{{widget.id}}">
-                            <div class="relative flex-shrink-0 w-full h-72">
-                                <!-- Teacher Image -->
-                                <img src="{{ widget.image.url }}" alt="{{ widget.name }}"
-                                    class="w-full h-full object-cover">
-                                <!-- Overlay for name -->
-                                <div
-                                    class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white py-2 px-4 text-center">
-                                    <h3 class="font-semibold text-lg">{{ widget.title }}</h3>
-                                </div>
-                            </div>
-                            </a>
-                            {% endfor %}
-                        </div>
+                   <div class="relative w-full max-w-2xl mx-auto rounded-xl overflow-hidden shadow-md">
+    <div class="bg-green-600 text-white p-4 text-center font-bold rounded-md mb-0">
+        মাধ্যমিক শাখা শিক্ষক
+    </div>
+                        <!-- Slider Container -->
+        <div id="highSchoolSlider" class="flex flex-nowrap transition-transform duration-700 ease-in-out">
+        {% for widget in high_school_widgets %}
+        <a href="/get-maddhomik/{{widget.id}}">
+            <div class="relative flex-shrink-0 w-full h-72">
+                <img src="{{ widget.image.url }}" alt="{{ widget.name }}" class="w-full h-full object-cover">
+                <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white py-2 px-4 text-center">
+                    <h3 class="font-semibold text-lg">{{ widget.title }}</h3>
+                </div>
+                </a>
+            </div>
+        
+        {% endfor %}
+    </div>
 
                         <!-- Navigation Dots -->
                         <div id="highSchoolDots"
@@ -458,46 +455,186 @@
         <button id="next-btn" class="cursor-pointer">Next »</button>
     </div>
 </div>
+
+
+
+
+<div class="lg:col-span-1 space-y-6">
+
+                    <div class="relative w-full max-w-2xl mx-auto rounded-xl overflow-hidden shadow-md">
+                        <div class="bg-green-600 text-white p-4 text-center font-bold rounded-md mb-0">স্কুল ক্যালেন্ডার
+                        </div>
+                
+                        <div class="flex transition-transform duration-700 ease-in-out">
+                    
+                             
+                            <div class="relative flex-shrink-0 w-full h-72">
+                           
+                                <img src="{{calender.image.url}}" alt=""
+                                    class="w-full h-full object-cover">
+
+                              
+
+
+                              
+                            
+                            </div>
+                    
+                        </div>
+              
+</div>
+
+
+
+
+
                     <!-- Important Links -->
                     <div class="bg-white border border-gray-300 rounded-lg">
                         <div class="bg-green-600 text-white p-3 font-bold rounded-t-lg">Important Links</div>
                         <ul class="divide-y divide-gray-200">
-                            <li class="py-2"><a href="#"
-                                    class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center"><span
-                                        class="play-icon"></span>শিক্ষা মন্ত্রণালয়</a></li>
-                            <li class="py-2"><a href="#"
-                                    class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center"><span
-                                        class="play-icon"></span>রাজশাহী শিক্ষা বোর্ড</a></li>
-                            <li class="py-2"><a href="#"
-                                    class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center"><span
-                                        class="play-icon"></span>শিক্ষক ও উক্ত শিক্ষক শিক্ষা বোর্ড</a></li>
-                            <li class="py-2"><a href="#"
-                                    class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center"><span
-                                        class="play-icon"></span>জাতীয় শিক্ষা নীতিমালা</a></li>
-                            <li class="py-2"><a href="#"
-                                    class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center"><span
-                                        class="play-icon"></span>ডিজিটাল বাংলাদেশ</a></li>
-                            <li class="py-2"><a href="#"
-                                    class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center"><span
-                                        class="play-icon"></span>গবেষণা বিভাগ মন্ত্রণালয়</a></li>
-                            <li class="py-2"><a href="#"
-                                    class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center"><span
-                                        class="play-icon"></span>Shikkhak Natayen</a></li>
-                            <li class="py-2"><a href="#"
-                                    class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center"><span
-                                        class="play-icon"></span>EMIS | DSHE</a></li>
-                        </ul>
+    <li class="py-2">
+        <a href="https://moedu.gov.bd"
+           class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center">
+            <span class="play-icon"></span>শিক্ষা মন্ত্রণালয়
+        </a>
+    </li>
+
+    <li class="py-2">
+        <a href="https://dinajpureducationboard.gov.bd/"
+           class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center">
+            <span class="play-icon"></span>দিনাজপুর শিক্ষা বোর্ড
+        </a>
+    </li>
+    
+    <li class="py-2">
+        <a href="https://dpe.gov.bd/pages/notices"
+           class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center">
+            <span class="play-icon"></span>প্রাথমিক শিক্ষা বোর্ড 
+        </a>
+    </li>
+    
+    <li class="py-2">
+        <a href="https://dshe.gov.bd/pages/notices"
+           class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center">
+            <span class="play-icon"></span>মাধ্যমিক ও উচ্চশিক্ষা অধিদপ্তর
+        </a>
+    </li> 
+    
+    <li class="py-2">
+        <a href="https://dshe.gov.bd/"
+           class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center">
+            <span class="play-icon"></span>মাধ্যমিক নোটিস
+        </a>
+    </li>
+
+    <li class="py-2">
+        <a href="https://www.bangladesh.gov.bd"
+           class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center">
+            <span class="play-icon"></span>শিক্ষক ও উক্ত শিক্ষক শিক্ষা বোর্ড
+        </a>
+    </li>
+
+    <li class="py-2">
+        <a href="https://moedu.gov.bd/site/view/policy_category/নীতিমালা"
+           class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center">
+            <span class="play-icon"></span>জাতীয় শিক্ষা নীতিমালা
+        </a>
+    </li>
+
+    <li class="py-2">
+        <a href="https://digitalbangladesh.gov.bd"
+           class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center">
+            <span class="play-icon"></span>ডিজিটাল বাংলাদেশ
+        </a>
+    </li>
+
+    <li class="py-2">
+        <a href="https://moedu.gov.bd"
+           class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center">
+            <span class="play-icon"></span>গবেষণা বিভাগ মন্ত্রণালয়
+        </a>
+    </li>
+
+    <li class="py-2">
+        <a href="https://shikkhokbatayon.gov.bd"
+           class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center">
+            <span class="play-icon"></span>Shikkhak Natayen
+        </a>
+    </li>
+
+    <li class="py-2">
+        <a href="https://emis.dshe.gov.bd"
+           class="text-primary hover:text-dark-red hover:underline pl-6 relative flex items-center">
+            <span class="play-icon"></span>EMIS | DSHE
+        </a>
+    </li>
+</ul>
+
                     </div>
 
 
 
 
                     <div class="bg-white border border-gray-300 rounded-lg overflow-hidden">
-                        <div class="bg-green-600 text-white p-4 font-bold text-center">হটলাইন</div>
-                        <div class="h-full bg-gray-200 flex items-center justify-center text-gray-500 text-sm">
-                            <img src="https://cmhsr.edu.bd/wp-content/uploads/2023/09/National-Helpline.jpg"
-                                alt="Principal" class="w-full h-full object-cover">
-                        </div>
+                        <div class="bg-green-600 text-white p-4 font-bold text-center">জরুরী সেবা</div>
+                        
+                        
+                        
+                        
+                        
+<div class="w-full max-w-3xl p-3 rounded-2xl shadow-xl bg-gradient-to-br from-blue-50 to-purple-50 border border-blue-100">
+
+  <!-- Header -->
+  <div class="text-center mb-6">
+    <p class="mt-2 text-xl font-semibold text-purple-700">
+      বোচাগঞ্জ, দিনাজপুর।
+    </p>
+  </div>
+
+  <!-- Top Boxes -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6">
+
+    <!-- 999 Box -->
+    <div class="rounded-xl p-5 text-center bg-gradient-to-r from-green-400 to-emerald-500 text-white shadow-md">
+      <p class="text-base mb-2 font-medium">যেকোন জরুরী সেবা পেতে</p>
+      <p class="text-5xl font-bold tracking-wider">৯৯৯</p>
+    </div>
+
+    <!-- 109 Box -->
+    <div class="rounded-xl p-5 text-center bg-gradient-to-r from-pink-400 to-rose-500 text-white shadow-md">
+      <p class="text-base mb-2 font-medium">নারী ও শিশু নির্যাতন প্রতিরোধ</p>
+      <p class="text-5xl font-bold tracking-wider">১০৯</p>
+    </div>
+
+  </div>
+
+  <!-- Contact List -->
+  <div class="rounded-xl bg-white/70 backdrop-blur p-5 shadow-inner border border-gray-200">
+
+    <div class="grid grid-cols-2 gap-y-3 text-lg">
+
+      <div class="space-y-3 font-medium text-gray-700">
+        <p class="text-blue-600">পুলিশ স্টেশন :</p>
+        <p class="text-red-500">ফায়ার সার্ভিস :</p>
+        <p class="text-yellow-600">বিদ্যুৎ অফিস :</p>
+        <p class="text-green-600">হাসপাতাল :</p>
+      </div>
+
+      <div class="space-y-3 text-right font-semibold text-gray-900">
+        <p>০১৩২০-১৩৬৫২১</p>
+        <p>০১৯০১-০২৩২৬৩</p>
+        <p>০১৭২৩-১৭৯৬৩৭</p>
+        <p>০১৭৩০-৩২৮৬৩৭</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+         
+                        
+                        
 
                     </div>
 
@@ -521,9 +658,10 @@
         <h2 class="text-2xl font-bold text-center mb-8">Image Gallery</h2>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            
             {% for img in gallery %}
             <div class="relative group overflow-hidden rounded-lg cursor-pointer">
-                <img src="{{ img.file.url }}" alt="Gallery Image"
+                <img src="{{ img.image.url }}" alt="Gallery Image"
                      class="w-full h-full object-cover aspect-video transform group-hover:scale-110 transition duration-500">
 
                 <!-- Overlay on hover -->
@@ -533,16 +671,47 @@
                 </div>
             </div>
             {% endfor %}
+           
         </div>
 
         <!-- Optional View All button -->
         <div class="text-center mt-8">
-            <a href="/"
+            <a href="/allimg"
                class="bg-gray-800 text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-gray-900 transition">
                View All Photos
             </a>
         </div>
     </div>
+</div>
+
+
+        <div class="my-5 bg-white py-12 border-t border-b border-gray-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-bold text-center mb-8">Video Gallery</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    {% for video in vids %}
+    <div class="rounded-lg overflow-hidden bg-gray-900 shadow">
+        <video 
+            controls 
+            preload="none"
+            class="w-full aspect-video object-cover">
+            <source src="{{ video.files.url }}" type="video/mp4">
+        </video>
+        <div class="p-3 text-white text-sm">
+            Video {{ forloop.counter }}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="text-center mt-8">
+            <a href="/allvideo"
+               class="bg-gray-800 text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-gray-900 transition">
+               View All Videos
+            </a>
+        </div>
+
+</div>
 </div>
 
         <!-- Location Section -->

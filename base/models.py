@@ -24,6 +24,20 @@ class Banner(BaseModel):
 
 class Gellery(BaseModel):
     image = models.FileField(upload_to="gellery")
+    
+class News(BaseModel):
+    text = models.TextField()
+
+
+class Calender(BaseModel):
+    image = models.FileField(upload_to="calenders")
+
+
+
+class Videos(BaseModel):
+    files = models.FileField(upload_to="vids")
+
+
 
 
 class Info(BaseModel):

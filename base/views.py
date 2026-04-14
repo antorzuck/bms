@@ -7,6 +7,28 @@ def subcategory_detail(request, id):
     return render(request, 'content.html', {'text': subcategory.text})
 
 
+def all_img(r):
+    gal = Gellery.objects.all().order_by('-id')
+    return render(r, 'content.html', {'gal': gal, 'have_img': True})
+
+    
+from django.core.paginator import Paginator
+
+def all_vid(request):
+    videos = Videos.objects.all().order_by('-id')
+
+    paginator = Paginator(videos, 9)  # 9 videos per page
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'content.html', {
+        'vid': page_obj,
+        'have_vid': page_obj.object_list.exists(),
+    })
+
+    
+
+
 def home(r):
 
     notice = Notice.objects.all().order_by('-id')

@@ -10,6 +10,78 @@
     {% else %}
 Nothing is here.....
     {% endif %}
+    
+    
+    {% if have_img %}
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            {% for img in gal %}
+            <div class="relative group overflow-hidden rounded-lg cursor-pointer">
+                <img src="{{ img.image.url }}" alt="Gallery Image"
+                     class="w-full h-full object-cover aspect-video transform group-hover:scale-110 transition duration-500">
+
+                <!-- Overlay on hover -->
+                <div
+                    class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center text-white text-lg font-semibold">
+                    View Image
+                </div>
+            </div>
+            {% endfor %}
+           
+        </div>
+        {% endif %}
+        
+        
+        
+{% if have_vid %}
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    {% for video in vid %}
+    <div class="rounded-lg overflow-hidden bg-gray-900 shadow">
+        <video 
+            controls 
+            preload="none"
+            class="w-full aspect-video object-cover">
+            <source src="{{ video.files.url }}" type="video/mp4">
+        </video>
+        <div class="p-3 text-white text-sm">
+            Video {{ forloop.counter }}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+
+{% if vid.has_other_pages %}
+<div class="flex justify-center items-center gap-2 mt-8">
+
+    {% if vid.has_previous %}
+        <a href="?page={{ vid.previous_page_number }}"
+           class="px-3 py-1 bg-gray-800 text-white rounded hover:bg-gray-700">
+            Prev
+        </a>
+    {% endif %}
+
+    <span class="px-4 py-1 bg-gray-900 text-white rounded">
+        Page {{ vid.number }} of {{ vid.paginator.num_pages }}
+    </span>
+
+    {% if vid.has_next %}
+        <a href="?page={{ vid.next_page_number }}"
+           class="px-3 py-1 bg-gray-800 text-white rounded hover:bg-gray-700">
+            Next
+        </a>
+    {% endif %}
+
+</div>
+{% endif %}
+
+{% endif %}
+
+
+
+        
+        
 </section>
 </div>
 <script>
