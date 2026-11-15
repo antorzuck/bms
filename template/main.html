@@ -651,6 +651,84 @@
                 </div>
             </div>
         </div>
+        
+        
+        
+        
+        
+        
+        <!-- Curriculum Activities & Top Students Sliders -->
+<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-12 py-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- Left: Curriculum Activities -->
+        <div class="snap-slider relative w-full rounded-xl overflow-hidden shadow-md bg-white">
+            <div class="bg-green-600 text-white p-4 text-center font-bold">Curricular Activities</div>
+            <div class="relative overflow-hidden">
+                <div class="snap-track flex transition-transform duration-700 ease-in-out">
+                    {% for a in activities %}
+                    <div class="relative min-w-full h-72 sm:h-80">
+                        <img src="{{ a.image.url }}" alt="{{ a.text }}" class="w-full h-full object-cover">
+                        {% if a.text %}
+                        <div class="absolute left-0 right-0 bottom-12 bg-black/60 text-white text-center text-sm sm:text-base font-medium px-4 py-2">
+                            {{ a.text }}
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% empty %}
+                    <div class="min-w-full h-72 sm:h-80 bg-gray-200 flex items-center justify-center text-gray-500">
+                        কোনো ছবি নেই
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <button class="snap-prev absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white/90 text-gray-800 w-8 h-8 rounded-full">
+                    <i class="fas fa-chevron-left text-xs"></i>
+                </button>
+                <button class="snap-next absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white/90 text-gray-800 w-8 h-8 rounded-full">
+                    <i class="fas fa-chevron-right text-xs"></i>
+                </button>
+                <div class="snap-dots absolute bottom-3 left-1/2 -translate-x-1/2 flex space-x-2"></div>
+            </div>
+        </div>
+
+        <!-- Right: Top Students -->
+        <div class="snap-slider relative w-full rounded-xl overflow-hidden shadow-md bg-white">
+            <div class="bg-green-600 text-white p-4 text-center font-bold">Top Student</div>
+            <div class="relative overflow-hidden">
+                <div class="snap-track flex transition-transform duration-700 ease-in-out">
+                    {% for s in top_students %}
+                    <div class="relative min-w-full h-72 sm:h-80">
+                        <img src="{{ s.image.url }}" alt="{{ s.text }}" class="w-full h-full object-cover">
+                        {% if s.text %}
+                        <div class="absolute left-0 right-0 bottom-12 bg-black/60 text-white text-center text-sm sm:text-base font-medium px-4 py-2">
+                            {{ s.text }}
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% empty %}
+                    <div class="min-w-full h-72 sm:h-80 bg-gray-200 flex items-center justify-center text-gray-500">
+                        কোনো ছবি নেই
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <button class="snap-prev absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white/90 text-gray-800 w-8 h-8 rounded-full">
+                    <i class="fas fa-chevron-left text-xs"></i>
+                </button>
+                <button class="snap-next absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white/90 text-gray-800 w-8 h-8 rounded-full">
+                    <i class="fas fa-chevron-right text-xs"></i>
+                </button>
+                <div class="snap-dots absolute bottom-3 left-1/2 -translate-x-1/2 flex space-x-2"></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+        
+        
+        
 
         <!-- Video Section -->
         <div class="bg-white py-12 border-t border-b border-gray-300">
@@ -977,6 +1055,53 @@
     };
 
     renderCalendar();
+    
+    
+    
+    
+    
+      // Separate scope, so existing slider variables er sathe conflict hobe na
+    (function () {
+        document.querySelectorAll('.snap-slider').forEach(function (root) {
+            const track = root.querySelector('.snap-track');
+            const dotsBox = root.querySelector('.snap-dots');
+            const total = track.children.length;
+            if (!total) return;
+
+            let i = 0, timer;
+
+            for (let n = 0; n < total; n++) {
+                const d = document.createElement('button');
+                d.className = 'w-2.5 h-2.5 rounded-full bg-white/50 transition';
+                d.onclick = function () { go(n); restart(); };
+                dotsBox.appendChild(d);
+            }
+
+            function go(n) {
+                i = (n + total) % total;
+                track.style.transform = 'translateX(-' + (i * 100) + '%)';
+                Array.from(dotsBox.children).forEach(function (d, k) {
+                    d.classList.toggle('bg-white', k === i);
+                    d.classList.toggle('bg-white/50', k !== i);
+                });
+            }
+
+            function restart() {
+                clearInterval(timer);
+                timer = setInterval(function () { go(i + 1); }, 4000);
+            }
+
+            root.querySelector('.snap-prev').onclick = function () { go(i - 1); restart(); };
+            root.querySelector('.snap-next').onclick = function () { go(i + 1); restart(); };
+
+            go(0);
+            restart();
+        });
+    })();
+    
+    
+    
+    
         </script>
 
         <script src="https://unpkg.com/lucide@latest"></script>

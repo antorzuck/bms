@@ -93,3 +93,36 @@ class MaddhomikTeacher(BaseModel):
     text = CKEditor5Field()
 
 
+
+
+class CurriculumActivity(models.Model):
+    image = models.FileField(upload_to='curriculum/')
+    text = models.CharField(max_length=150, blank=True, help_text="Image er upor overlay text")
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created_at']
+        verbose_name = "Curriculum Activity"
+        verbose_name_plural = "Curriculum Activities"
+
+    def __str__(self):
+        return self.text or f"Activity #{self.pk}"
+
+
+class TopStudent(models.Model):
+    image = models.FileField(upload_to='top_students/')
+    text = models.CharField(max_length=150, blank=True, help_text="Image er upor overlay text")
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created_at']
+        verbose_name = "Top Student"
+        verbose_name_plural = "Top Students"
+
+    def __str__(self):
+        return self.text or f"Student #{self.pk}"
+
+
+
+
+

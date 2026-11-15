@@ -11,6 +11,11 @@ admin.site.register(News)
 admin.site.register(Videos)
 admin.site.register(Calender)
 
+
+admin.site.register(CurriculumActivity)
+admin.site.register(TopStudent)
+
+
 @admin.register(HeadTeacher)
 class HeadTeacherAdmin(admin.ModelAdmin):
     list_display = ('name', 'title', 'created_at')
